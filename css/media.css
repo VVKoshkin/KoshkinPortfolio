@@ -1,0 +1,39 @@
+@media screen and (max-width: 1200px) {
+
+    .navbar {
+        display: block;
+    }
+
+    .navbar-logo {
+        display: inline-block;
+    }
+
+    .navbar-hamburger {
+        display: inline-block;
+        vertical-align: middle;
+        float: right;
+        margin-top: 5px;
+    }
+
+    .navbar-elements {
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        align-items: baseline;
+        margin-left: 0;
+        display: none;
+    }
+
+    .navbar-elements>* {
+        margin-bottom: 20px;
+    }
+
+    .navbar-element__button {
+        width: 100%;
+    }
+
+    .navbar-element__text {
+        width: 100%;
+    }
+
+}

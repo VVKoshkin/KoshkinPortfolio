@@ -1,0 +1,142 @@
+@navbarHeight: 95px;
+@navbarLightBgc: #71A2AD;
+@colorSwitcherLightBorder: #B5C8CF;
+@btnLightColor: #8EBDC8;
+@btnLightColorHover: #71A2AD;
+
+.header-bgi {
+    background-image: linear-gradient(rgba(61, 72, 87, 0.8), rgba(61, 72, 87, 0.8)), url('../img/header_bgi.jpg');
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+// Background Blur using backdrop-filter
+.header-blur {
+    backdrop-filter: blur(4px); // This be the blur
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    position: relative;
+}
+
+
+
+.navbar {
+    height: @navbarHeight;
+    background-color: @navbarLightBgc;
+    margin-bottom: 65px;
+}
+
+.navbar-content {
+    height: 100%;
+}
+
+.color-mode-switcher {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.color-mode-switcher-line {
+    width: 50px;
+    height: 20px;
+    background: #FFFFFF;
+    border: 3px solid @colorSwitcherLightBorder;
+    border-radius: 20px;
+}
+
+.color-mode-switcher-circle {
+    width: 25px;
+    height: 25px;
+    background: @navbarLightBgc;
+    border: 3px solid @colorSwitcherLightBorder;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+}
+
+.btn {
+    border: none;
+    background-color: @btnLightColor;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn:hover {
+    background-color: @btnLightColorHover;
+}
+
+.header-btns {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 75px;
+    gap: 30px;
+}
+
+.header-btn {
+    padding: 25px 150px;
+}
+
+.what-order {
+    padding-top: 60px;
+    padding-bottom: 140px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+    padding-top: 30px;
+    text-align: center;
+    background-color: #8EBDC8;
+}
+
+.what-order-cards {
+    margin-top: 60px;
+}
+
+.what-order-card {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.what-order-card img {
+    width: 350px;
+    height: 350px;
+    margin-bottom: 30px;
+}
+
+.card-headline {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #F5FAFA;
+    margin-bottom: 20px;
+
+}
+
+.card-price {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #BBD7DE;
+    margin-bottom: 50px;
+
+}

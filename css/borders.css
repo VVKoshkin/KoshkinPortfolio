@@ -1,0 +1,38 @@
+.container {
+    border: 1px solid black;
+}
+
+.header {
+    border: 1px solid black;
+}
+
+.navbar-logo {
+    border: 1px solid black;
+}
+
+.navbar-elements {
+    border: 1px solid black;
+}
+
+section {
+    border: 1px solid black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+div {
+    border: 1px solid black;
+}
+
+.footer {
+    border: 1px solid black;
+}
+
+.footer-content-blocks {
+    border: 1px solid black;
+}
+
+.footer-content {
+    border: 1px solid black;
+    flex-grow: 1;
+}
