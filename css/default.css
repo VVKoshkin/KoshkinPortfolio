@@ -43,7 +43,9 @@ a:hover {
 }
 
 .typeset {
-    /* implement something here */
+    font-size: 24px;
+    line-height: 28px;
+    color: #71A2AD;
 }
 
 .container {
@@ -107,35 +109,56 @@ a:hover {
 
 
 .footer {
-    background-color: #AAA;
+    background-color: #E1EFF1;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 
 .footer-content a {
     display: block;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: capitalize;
+    color: #71A2AD;
+}
+
+.footer-content a:hover {
+    color: #8EBDC8;
 }
 
 .footer-content-blocks {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .footer-socnets {
     display: flex;
     align-items: center;
+    align-self: center;
+    gap: 32px;
 }
 
 .footer-socnet__link {
     display: block;
-    margin-right: 30px;
-}
-
-.footer-socnet__link:last-of-type {
-    margin-right: 0;
 }
 
 .footer-socnet__img {
-    width: 32px;
-    height: 32px;
+    width: 68px;
+    height: 68px;
+}
+
+.footer-typeset {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #C75633;
 }

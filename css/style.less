@@ -94,7 +94,6 @@
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
 }
 
 .card {
@@ -105,6 +104,9 @@
 
 .what-order-cards {
     margin-top: 60px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 30px;
 }
 
 .what-order-card {
@@ -139,4 +141,168 @@
     color: #BBD7DE;
     margin-bottom: 50px;
 
+}
+
+.list-and-photo {
+    margin-top: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 8.333%;
+    padding-right: 8.333%;
+}
+
+.list-and-photo>ul {
+    flex-grow: 1;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.list-and-photo__img>img {
+    max-width: 150px;
+}
+
+.list-and-photo>ul>li {
+    font-size: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    color: #3D4857;
+}
+
+.list-and-photo>ul>li:hover {
+    font-size: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    color: #C75633;
+
+}
+
+.what-else {
+    padding-bottom: 70px;
+}
+
+.my-portfolio {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.my-portfolio-cards {
+    margin-top: 60px;
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 60px;
+    margin-bottom: 65px;
+}
+
+.my-portfolio-card {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.my-portfolio-card>img {
+    width: 515px;
+    height: 420px;
+}
+
+.my-portfolio-card>.card-headline {
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.my-portfolio-slider {
+    margin-bottom: 105px;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.slider-controller {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.slider-arrow {
+    cursor: pointer;
+    user-select: none;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #8EBDC8;
+}
+
+.slider-arrow:hover {
+    color: #71A2AD;
+}
+
+.slider-controller-circle {
+    width: 15px;
+    height: 15px;
+    background-color: #B5C8CF;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-controller-circle:hover {
+    background-color: #94c8d9; // наугад подобрано, средний типа
+
+}
+
+.slider-controller-circle.active {
+    background-color: #78A0AD;
+}
+
+.grey-text {
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #858585;
+}
+
+.about {
+    padding-top: 50px;
+    padding-bottom: 90px;
+}
+
+.contact-me {
+    background-color: #E1EFF1;
+    padding-top: 60px;
+    padding-bottom: 110px;
+    text-align: center;
+    gap: 40px;
+}
+
+.contact-me .headline {
+    color: #8EBDC8;
+}
+
+.contact-me-btn {
+    // background: linear-gradient(0deg, #8EBDC8, #8EBDC8),
+    // linear-gradient(0deg, #8D8D8D, #8D8D8D),
+    // #8D8D8D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 25px 185px;
+}
+
+.typeset {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.socnets {
+    display: flex;
+    justify-content: center;
+    gap: 105px;
+}
+
+.about-work {
+    padding-top: 60px;
+    padding-bottom: 90px;
 }
