@@ -1,8 +1,50 @@
 @navbarHeight: 95px;
-@navbarLightBgc: #71A2AD;
-@colorSwitcherLightBorder: #B5C8CF;
-@btnLightColor: #8EBDC8;
-@btnLightColorHover: #71A2AD;
+// light(default) and dark modes maps
+// navbar background color: 
+@navbarBgc: @navbarBgcModes[lightMode];
+@navbarLinkColor: @navbarLinkColorModes[lightMode];
+@navbarLinkColorHover: @navbarLinkColorHoverModes[lightMode];
+@colorSwitcherBorder: @colorSwitcherBorderModes[lightMode];
+@navbarBgcModes: {
+    lightMode: #71A2AD;
+    darkMode: #2B2C34;
+}
+@navbarLinkColorModes: {
+    lightMode: #E1EFF1;
+    darkMode: #78A0AD;
+}
+@navbarLinkColorHoverModes: {
+    lightMode: #BBD7DE;
+    darkMode: #B5C8CF;
+}
+@colorSwitcherBorderModes: {
+    lightMode: #B5C8CF;
+    darkMode: #3D4857;
+}
+
+// themes swither row color
+@colorSwitcher: @colorSwitcher_Light;
+@colorSwitcher_Light: #FFF;
+@colorSwitcher_Dark: #000;
+// button color (common+hover)
+@btnColor: @btnColor_Light;
+@btnColorHover: @btnColorHover_Light;
+@btnColor_Light: #8EBDC8;
+@btnColor_Dark: #3D4857;
+@btnColorHover_Light: #71A2AD;
+@btnColorHover_Dark: #C75633;
+// card background
+@cardBgc: @cardBgc_Light;
+@cardBgc_Light: #8EBDC8;
+@cardBgc_Dark: #2B2C34;
+// card headline color
+@cardHeadlineColor: @cardHeadlineColor_Light;
+@cardHeadlineColor_Light: #F5FAFA;
+@cardHeadlineColor_Dark: #B5C8CF;
+
+@cardPriceColor: @cardPriceColor_Light;
+@cardPriceColor_Light: #BBD7DE;
+@cardPriceColor_Dark: #858585;
 
 .header-bgi {
     background-image: linear-gradient(rgba(61, 72, 87, 0.8), rgba(61, 72, 87, 0.8)), url('../img/header_bgi.jpg');
@@ -29,8 +71,12 @@
 
 .navbar {
     height: @navbarHeight;
-    background-color: @navbarLightBgc;
+    background-color: @navbarBgc;
     margin-bottom: 65px;
+}
+
+.navbar-element__link {
+    color: @navbarLinkColor;
 }
 
 .navbar-content {
@@ -47,16 +93,16 @@
 .color-mode-switcher-line {
     width: 50px;
     height: 20px;
-    background: #FFFFFF;
-    border: 3px solid @colorSwitcherLightBorder;
+    background: @colorSwitcher;
+    border: 3px solid @colorSwitcherBorder;
     border-radius: 20px;
 }
 
 .color-mode-switcher-circle {
     width: 25px;
     height: 25px;
-    background: @navbarLightBgc;
-    border: 3px solid @colorSwitcherLightBorder;
+    background: @navbarBgc;
+    border: 3px solid @colorSwitcherBorder;
     border-radius: 50%;
     position: absolute;
     left: 0;
@@ -64,14 +110,14 @@
 
 .btn {
     border: none;
-    background-color: @btnLightColor;
+    background-color: @btnColor;
     border-radius: 10px;
     color: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btn:hover {
-    background-color: @btnLightColorHover;
+    background-color: @btnColorHover;
 }
 
 .header-btns {
@@ -99,7 +145,9 @@
 .card {
     padding-top: 30px;
     text-align: center;
-    background-color: #8EBDC8;
+    background-color: @cardBgc;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 }
 
 .what-order-cards {
@@ -128,7 +176,7 @@
 
     text-align: center;
 
-    color: #F5FAFA;
+    color: @cardHeadlineColor;
     margin-bottom: 20px;
 
 }
@@ -159,6 +207,7 @@
     flex-direction: column;
     gap: 35px;
 }
+
 .list-and-photo__img>img {
     max-width: 150px;
 }
@@ -168,6 +217,21 @@
     line-height: 24px;
     cursor: pointer;
     color: #3D4857;
+    margin-left: 40px;
+    position: relative;
+    // flex only for "before" aligment
+    display: flex;
+    align-items: center;
+}
+
+.list-and-photo>ul>li::before {
+    content: '';
+    position: absolute;
+    background-image: url('../img/list_arrow.png');
+    left: -40px;
+    width: 30px;
+    height: 30px;
+
 }
 
 .list-and-photo>ul>li:hover {
@@ -189,7 +253,7 @@
 
 .my-portfolio-cards {
     margin-top: 60px;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 30px;
     grid-row-gap: 60px;
     margin-bottom: 65px;
@@ -198,6 +262,7 @@
 .my-portfolio-card {
     padding-right: 30px;
     padding-left: 30px;
+    cursor: pointer;
 }
 
 .my-portfolio-card>img {
