@@ -39,7 +39,6 @@ a {
 .typeset {
     font-size: 24px;
     line-height: 28px;
-    color: #71A2AD;
 }
 
 .container {
@@ -100,11 +99,6 @@ a {
     background-size: cover;
 }
 
-
-.footer {
-    background-color: #E1EFF1;
-}
-
 .footer-content {
     display: flex;
     flex-direction: column;
@@ -117,12 +111,9 @@ a {
     font-size: 24px;
     line-height: 28px;
     text-transform: capitalize;
-    color: #71A2AD;
 }
 
-.footer-content a:hover {
-    color: #8EBDC8;
-}
+
 
 .footer-content-blocks {
     display: flex;
