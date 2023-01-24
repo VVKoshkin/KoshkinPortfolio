@@ -1,236 +1,257 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html lang="ru" class="theme-light">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document sample</title>
     <!-- Roboto Font (mostly popular) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="css/reset.css"> <!-- resets all to 0, for cross-browsing needs -->
-    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/reset.css" />
+    <!-- resets all to 0, for cross-browsing needs -->
+    <link rel="stylesheet" href="css/default.css" />
     <link rel="stylesheet/less" type="text/css" href="css/style.less" />
-    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet/less" type="text/css" href="css/forms.less" />
+    <link rel="stylesheet" href="css/media.css" />
     <!-- <link rel="stylesheet" href="css/borders.css"> just for demonstration, delete when real developement -->
-</head>
+  </head>
 
-<body data-theme="theme-light">
+  <body data-theme="theme-light">
     <header class="header">
-        <div class="header-bgi screen-width-bgi">
-            <div class="header-blur"></div>
-        </div>
-        <div class="navbar">
-            <div class="container">
-                <nav class="navbar-content">
-                    <div class="navbar-hamburger">
-                        <!-- will be shown when screen width less then container width -->
-                        <div class="navbar-hamburger__line"></div>
-                        <div class="navbar-hamburger__line"></div>
-                        <div class="navbar-hamburger__line"></div>
-                    </div>
-                    <div class="navbar-elements">
-                        <!-- whole block will be hidden when screen width less then container width -->
-                        <div class="navbar-element">
-                            <a class="navbar-element__link" href="#">Lorem</a>
-                        </div>
-                        <div class="navbar-element">
-                            <a class="navbar-element__link" href="#">Lorem</a>
-                        </div>
-                        <div class="navbar-element">
-                            <a class="navbar-element__link" href="#">Lorem</a>
-                        </div>
-                        <div class="navbar-element">
-                            <a class="navbar-element__link" href="#">Lorem</a>
-                        </div>
-                        <div class="navbar-element">
-                            <a class="navbar-element__link" href="#">Lorem</a>
-                        </div>
-                        <div class="navbar-element">
-                            <a class="navbar-element__link" href="#">Lorem</a>
-                        </div>
-                    </div>
-                    <div class="color-mode-switcher" id="color-mode-switcher">
-                        <div class="color-mode-switcher-line"></div>
-                        <div class="color-mode-switcher-circle"></div>
-                    </div>
-                </nav>
-            </div>
-        </div>
+      <div class="header-bgi screen-width-bgi">
+        <div class="header-blur"></div>
+      </div>
+      <div class="navbar">
         <div class="container">
-            <div class="header-content">
-                <h1 class="headline headline-big">вёрстка и создание сайтов</h1>
-                <p class="typeset typeset-big">вёрстка и создание сайтов</p>
-                <div class="header-btns">
-                    <button class="btn header-btn">Lorem</button>
-                    <button class="btn header-btn">Lorem</button>
-                </div>
+          <nav class="navbar-content">
+            <div class="navbar-hamburger">
+              <!-- will be shown when screen width less then container width -->
+              <div class="navbar-hamburger__line"></div>
+              <div class="navbar-hamburger__line"></div>
+              <div class="navbar-hamburger__line"></div>
             </div>
+            <div class="navbar-elements">
+              <!-- whole block will be hidden when screen width less then container width -->
+              <div class="navbar-element">
+                <a class="navbar-element__link" href="#">Lorem</a>
+              </div>
+              <div class="navbar-element">
+                <a class="navbar-element__link" href="#">Lorem</a>
+              </div>
+              <div class="navbar-element">
+                <a class="navbar-element__link" href="#">Lorem</a>
+              </div>
+              <div class="navbar-element">
+                <a class="navbar-element__link" href="#">Lorem</a>
+              </div>
+              <div class="navbar-element">
+                <a class="navbar-element__link" href="#">Lorem</a>
+              </div>
+              <div class="navbar-element">
+                <a class="navbar-element__link" href="#">Lorem</a>
+              </div>
+            </div>
+            <div class="color-mode-switcher" id="color-mode-switcher">
+              <div class="color-mode-switcher-line"></div>
+              <div class="color-mode-switcher-circle"></div>
+            </div>
+          </nav>
         </div>
+      </div>
+      <div class="container">
+        <div class="header-content">
+          <h1 class="headline headline-big">вёрстка и создание сайтов</h1>
+          <p class="typeset typeset-big">вёрстка и создание сайтов</p>
+          <div class="header-btns">
+            <button class="btn header-btn" data-action="openOrderForm">Свяжитесь со мной</button>
+            <button class="btn header-btn">Lorem</button>
+          </div>
+        </div>
+      </div>
     </header>
     <main class="main">
-        <section class="what-order">
-            <div class="container">
-                <h4 class="headline">Что можно заказать</h4>
-                <div class="cards what-order-cards">
-                    <!-- x6 -->
-                    <div class="card what-order-card">
-                        <img src="" alt="">
-                        <h4 class="card-headline">Сайт такой-то</h4>
-                        <p class="card-price">от 100 рублей</p>
-                    </div>
-                    <div class="card what-order-card">
-                        <img src="" alt="">
-                        <h4 class="card-headline">Сайт такой-то</h4>
-                        <p class="card-price">от 100 рублей</p>
-                    </div>
-                    <div class="card what-order-card">
-                        <img src="" alt="">
-                        <h4 class="card-headline">Сайт такой-то</h4>
-                        <p class="card-price">от 100 рублей</p>
-                    </div>
-                    <div class="card what-order-card">
-                        <img src="" alt="">
-                        <h4 class="card-headline">Сайт такой-то</h4>
-                        <p class="card-price">от 100 рублей</p>
-                    </div>
-                </div>
+      <section class="what-order">
+        <div class="container">
+          <h4 class="headline">Что можно заказать</h4>
+          <div class="cards what-order-cards">
+            <!-- x6 -->
+            <div class="card what-order-card">
+              <img src="" alt="" />
+              <h4 class="card-headline">Сайт такой-то</h4>
+              <p class="card-price">от 100 рублей</p>
             </div>
-        </section>
-        <section class="what-else">
-            <div class="container">
-                <h4 class="headline">А что ещё</h4>
-                <div class="list-and-photo">
-                    <ul class="what-else-list">
-                        <li>Lorem, ipsum dolor.</li>
-                        <li>Reprehenderit, sit esse.</li>
-                        <li>Temporibus, ab eum.</li>
-                        <li>Fugiat, recusandae quibusdam?</li>
-                        <li>Id, laudantium adipisci?</li>
-                        <li>Aliquam, fuga rem.</li>
-                        <li>Aliquam, fuga rem.</li>
-                    </ul>
-                    <div class="list-and-photo__img">
-                    <img src="img/wp_logo.png" alt="">
-                    </div>
-                </div>
+            <div class="card what-order-card">
+              <img src="" alt="" />
+              <h4 class="card-headline">Сайт такой-то</h4>
+              <p class="card-price">от 100 рублей</p>
             </div>
-        </section>
-        <section class="my-portfolio">
-            <div class="container">
-                <h4 class="headline">мои работы</h4>
-                <div class="cards my-portfolio-cards">
-                    <!-- х4 -->
-                    <div class="card my-portfolio-card">
-                        <img src="" alt="">
-                        <p class="card-headline">Краткое описание сайта</p>
-                    </div>
-                    <div class="card my-portfolio-card">
-                        <img src="" alt="">
-                        <p class="card-headline">Краткое описание сайта</p>
-                    </div>
-                    <div class="card my-portfolio-card">
-                        <img src="" alt="">
-                        <p class="card-headline">Краткое описание сайта</p>
-                    </div>
-                </div>
-                <div class="slider my-portfolio-slider">
-                    <p class="slider-arrow" id="portfolioSliderPrev">&lt;</p>
-                    <div class="slider-controller">
-                        <div class="slider-controller-circle"></div>
-                        <div class="slider-controller-circle active"></div>
-                        <div class="slider-controller-circle"></div>
-                    </div>
-                    <p class="slider-arrow" id="portfolioSliderNext">&gt;</p>
-                </div>
-                <p class="grey-text">Кстати, этот сайт-портфолио тоже создан мной :)</p>
+            <div class="card what-order-card">
+              <img src="" alt="" />
+              <h4 class="card-headline">Сайт такой-то</h4>
+              <p class="card-price">от 100 рублей</p>
             </div>
-        </section>
-        <section class="about">
-            <div class="container">
-                <h4 class="headline">Обо мне</h4>
-                <div class="list-and-photo">
-                    <ul class="about-list">
-                        <li>Lorem, ipsum.</li>
-                        <li>Quasi, saepe!</li>
-                        <li>Ex, reprehenderit.</li>
-                        <li>Eveniet, autem.</li>
-                        <li>Atque, quod.</li>
-                        <li>Alias, laboriosam.</li>
-                    </ul>
-                    <div class="list-and-photo__img">
-                        <img src="img/design_logo.png" alt="">
-                    </div>
-                </div>
+            <div class="card what-order-card">
+              <img src="" alt="" />
+              <h4 class="card-headline">Сайт такой-то</h4>
+              <p class="card-price">от 100 рублей</p>
             </div>
-        </section>
-        <section class="contact-me screen-width-bgi">
-            <div class="container">
-                <h4 class="headline">Как со мной связатьсЯ</h4>
-                <p class="typeset">Для этого нажмите на кнопку:</p>
-                <button class="contact-me-btn btn">Lorem</button>
-                <p class="typeset">Или напишите мне на почту/в соцсеть/мессенджер:</p>
-                <div class="socnets">
-                    <a href="#"><img src="img/socnets/email.png" alt="email"></a>
-                    <a href="#"><img src="img/socnets/vk.png" alt="VK"></a>
-                    <a href="#"><img src="img/socnets/tg.png" alt="Telegram"></a>
-                </div>
+          </div>
+        </div>
+      </section>
+      <section class="what-else">
+        <div class="container">
+          <h4 class="headline">А что ещё</h4>
+          <div class="list-and-photo">
+            <ul class="what-else-list">
+              <li>Lorem, ipsum dolor.</li>
+              <li>Reprehenderit, sit esse.</li>
+              <li>Temporibus, ab eum.</li>
+              <li>Fugiat, recusandae quibusdam?</li>
+              <li>Id, laudantium adipisci?</li>
+              <li>Aliquam, fuga rem.</li>
+              <li>Aliquam, fuga rem.</li>
+            </ul>
+            <div class="list-and-photo__img">
+              <img src="img/wp_logo.png" alt="" />
             </div>
-        </section>
-        <section class="about-work">
-            <div class="container">
-                <h4 class="headline">как я работаю</h4>
-                <div class="list-and-photo">
-                    <ul class="about-list">
-                        <li>Lorem, ipsum.</li>
-                        <li>Quasi, saepe!</li>
-                        <li>Ex, reprehenderit.</li>
-                        <li>Eveniet, autem.</li>
-                        <li>Atque, quod.</li>
-                        <li>Alias, laboriosam.</li>
-                    </ul>
-                    <div class="list-and-photo__img">
-                        <img src="img/design_logo.png" alt="">
-                    </div>
-                </div>
-
+          </div>
+        </div>
+      </section>
+      <section class="my-portfolio">
+        <div class="container">
+          <h4 class="headline">мои работы</h4>
+          <div class="cards my-portfolio-cards">
+            <!-- х4 -->
+            <div class="card my-portfolio-card">
+              <img src="" alt="" />
+              <p class="card-headline">Краткое описание сайта</p>
             </div>
-        </section>
-
+            <div class="card my-portfolio-card">
+              <img src="" alt="" />
+              <p class="card-headline">Краткое описание сайта</p>
+            </div>
+            <div class="card my-portfolio-card">
+              <img src="" alt="" />
+              <p class="card-headline">Краткое описание сайта</p>
+            </div>
+          </div>
+          <div class="slider my-portfolio-slider">
+            <p class="slider-arrow" id="portfolioSliderPrev">&lt;</p>
+            <div class="slider-controller">
+              <div class="slider-controller-circle"></div>
+              <div class="slider-controller-circle active"></div>
+              <div class="slider-controller-circle"></div>
+            </div>
+            <p class="slider-arrow" id="portfolioSliderNext">&gt;</p>
+          </div>
+          <p class="grey-text">
+            Кстати, этот сайт-портфолио тоже создан мной :)
+          </p>
+        </div>
+      </section>
+      <section class="about">
+        <div class="container">
+          <h4 class="headline">Обо мне</h4>
+          <div class="list-and-photo">
+            <ul class="about-list">
+              <li>Lorem, ipsum.</li>
+              <li>Quasi, saepe!</li>
+              <li>Ex, reprehenderit.</li>
+              <li>Eveniet, autem.</li>
+              <li>Atque, quod.</li>
+              <li>Alias, laboriosam.</li>
+            </ul>
+            <div class="list-and-photo__img">
+              <img src="img/design_logo.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact-me screen-width-bgi">
+        <div class="container">
+          <h4 class="headline">Как со мной связатьсЯ</h4>
+          <p class="typeset">Для этого нажмите на кнопку:</p>
+          <button class="contact-me-btn btn">Lorem</button>
+          <p class="typeset">Или напишите мне на почту/в соцсеть/мессенджер:</p>
+          <div class="socnets">
+            <a href="#"><img src="img/socnets/email.png" alt="email" /></a>
+            <a href="#"><img src="img/socnets/vk.png" alt="VK" /></a>
+            <a href="#"><img src="img/socnets/tg.png" alt="Telegram" /></a>
+          </div>
+        </div>
+      </section>
+      <section class="about-work">
+        <div class="container">
+          <h4 class="headline">как я работаю</h4>
+          <div class="list-and-photo">
+            <ul class="about-list">
+              <li>Lorem, ipsum.</li>
+              <li>Quasi, saepe!</li>
+              <li>Ex, reprehenderit.</li>
+              <li>Eveniet, autem.</li>
+              <li>Atque, quod.</li>
+              <li>Alias, laboriosam.</li>
+            </ul>
+            <div class="list-and-photo__img">
+              <img src="img/design_logo.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content-blocks">
-                <div class="footer-content">
-                    <a href="#">Lorem, ipsum.</a>
-                    <a href="#">Minus, architecto.</a>
-                    <a href="#">Praesentium, voluptas.</a>
-                    <a href="#">Aliquam, harum!</a>
-                    <a href="#">Nam, fuga!</a>
-                    <a href="#">Voluptas, eos.</a>
-                </div>
-                <div class="footer-content">
-                    <p class="footer-typeset">Также<br> вступай в<br>группы в ВК<br>
-                        и Telegram</p>
-                    <div class="footer-socnets">
-                        <a target="_blank" href="https://vk.com" class="footer-socnet__link"><img src="img/socnets/vk.png" alt=""
-                                class="footer-socnet__img"></a>
-                        <a target="_blank" href="https://tg.com" class="footer-socnet__link"><img src="img/socnets/tg.png" alt=""
-                                class="footer-socnet__img"></a>
-                    </div>
-
-
-                </div>
+      <div class="container">
+        <div class="footer-content-blocks">
+          <div class="footer-content">
+            <a href="#">Lorem, ipsum.</a>
+            <a href="#">Minus, architecto.</a>
+            <a href="#">Praesentium, voluptas.</a>
+            <a href="#">Aliquam, harum!</a>
+            <a href="#">Nam, fuga!</a>
+            <a href="#">Voluptas, eos.</a>
+          </div>
+          <div class="footer-content">
+            <p class="footer-typeset">
+              Также<br />
+              вступай в<br />группы в ВК<br />
+              и Telegram
+            </p>
+            <div class="footer-socnets">
+              <a
+                target="_blank"
+                href="https://vk.com"
+                class="footer-socnet__link"
+                ><img
+                  src="img/socnets/vk.png"
+                  alt=""
+                  class="footer-socnet__img"
+              /></a>
+              <a
+                target="_blank"
+                href="https://tg.com"
+                class="footer-socnet__link"
+                ><img
+                  src="img/socnets/tg.png"
+                  alt=""
+                  class="footer-socnet__img"
+              /></a>
             </div>
+          </div>
         </div>
+      </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/less"></script>
-</body>
-
+  </body>
 </html>

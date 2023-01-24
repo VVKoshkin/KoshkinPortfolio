@@ -1,0 +1,206 @@
+:root[class="theme-light"] {
+  --formBgc: #e1eff1;
+  --formSelectListColor: #4b6a70;
+  --formSelectBgc: #e1eff1;
+  --formTypesetColor: #3d4857;
+}
+
+:root[class="theme-dark"] {
+  --formBgc: #2b2c34;
+  --formSelectListColor: #faab60;
+  --formSelectBgc: #3d4857;
+  --formTypesetColor: #b5c8cf;
+}
+
+@keyframes fadeInAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }  
+}
+
+@keyframes fadeOutAnim {
+  0% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 0;
+  } 
+
+}
+
+.fade-in {
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-name: fadeInAnim;
+}
+
+.fade-out {
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-name: fadeOutAnim;
+}
+
+@keyframes shake {
+  0% {
+    background-color: initial;
+  }
+  20% {
+    transform: rotate3d(0, 0, 1, 1deg);
+  }
+  40% {
+    transform: rotate3d(0, 0, 1, -1deg);
+  }
+  50% {
+    background-color: rgb(247, 223, 223);
+  }
+  60% {
+    transform: rotate3d(0, 0, 1, 1deg);
+  }
+  80% {
+    transform: rotate3d(0, 0, 1, -1deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 1, 0deg);
+    background-color: initial;
+  }
+}
+
+.shakeAnimClass {
+  animation-duration: .3s;
+  animation-fill-mode: both;
+  animation-name: shake;
+}
+
+/* ANY FORM CONFIRMATION */
+.form-confirmed {
+  padding: 50px;
+  background-color: var(--formBgc);
+  text-align: center;
+  border-radius: 15px;
+}
+
+.form-confirmed>button {
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+/* ORDER FORM */
+@formFontSize: 22px;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(25, 25, 25, 0.7);
+  z-index: 1;
+  display: flex;
+}
+
+.modal-close {
+  background-color: rgba(60, 60, 60, 0.8);
+  border-radius: 50%;
+  padding: 10px;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background-color: rgba(100, 100, 100, 0.8);
+}
+
+.modal-close > img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.order-form {
+  background-color: var(--formBgc);
+  width: 50%;
+  padding: 50px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#order-form-name,
+#order-form-description {
+  padding: 20px 20px;
+  border: 1px solid #555;
+  border-radius: 10px;
+  font-size: @formFontSize;
+  color: var(--formTypesetColor);
+  background-color: var(--formBgc);
+}
+
+.order-form-p {
+  margin: 0;
+  padding: 0;
+  font-size: @formFontSize;
+  color: var(--formTypesetColor);
+}
+
+.connection-type-div {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+#connectionType {
+  width: 100%;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 15px;
+  outline: 0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  background: var(--formSelectBgc);
+  color: var(--formSelectListColor);
+  appearance: none;
+}
+
+.connection-type-div_arrow {
+  position: absolute;
+  top: 16px;
+  right: 15px;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 8px 5px 0px 5px;
+  border-color: #7b7b7b transparent transparent transparent;
+}
+
+.order-form > input[name="connection-type-value"] {
+  padding: 10px 15px;
+  border: 1px solid #555;
+  border-radius: 10px;
+  color: var(--formTypesetColor);
+  background-color: var(--formBgc);
+}
+
+.order-form-btn {
+  padding: 20px 15px;
+  cursor: pointer;
+}
+
+.btn.disabled {
+  background-color: #777;
+  cursor: default;
+}
+.btn.disabled:hover {
+  background-color: #777;
+}
+
+/* CALCULATION FORM */

@@ -1,0 +1,34 @@
+<div>
+  <form action="#" class="order-form">
+    <input
+      type="text"
+      name="name"
+      id="order-form-name"
+      placeholder="Ваше имя"
+      required
+    />
+    <textarea
+      name="description"
+      id="order-form-description"
+      rows="4"
+      placeholder="Опишите заказ (необязательно)"
+    ></textarea>
+    <p class="order-form-p">Как связаться</p>
+    <div class="connection-type-div">
+      <select id="connectionType" required name="connectionType">
+        <option value="none">--Выбрать--</option>
+        <option value="TG">Telegram</option>
+        <option value="VK">VK</option>
+        <option value="e-mail">Почта</option>
+        <option value="phone">Телефон</option>
+      </select>
+      <div class="connection-type-div_arrow"></div>
+    </div>
+    <input
+      type="submit"
+      id="orderFormSubmit"
+      value="Отправить заявку"
+      class="btn order-form-btn"
+    />
+  </form>
+</div>
