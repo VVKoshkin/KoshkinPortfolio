@@ -10,6 +10,11 @@ $(() => {
     let pageTheme = localStorage.getItem('page-theme');
     if (pageTheme == null) pageTheme = 'theme-light';
     setTheme(pageTheme);
+    refreshListeners();
+});
+
+const refreshListeners = () => {
+    // хамбургер меню - для адаптива
     $('.navbar-hamburger').click(() => {
         $('.navbar-elements').toggle();
     });
@@ -20,13 +25,28 @@ $(() => {
         localStorage.setItem('page-theme', $('html').attr('class'));
     });
     // открыть форму перезвоните мне
-    $('.header-btn[data-action="openOrderForm"]').click(() => {
+    $('button[data-action="openOrderForm"]').click(() => {
         openModal('form-order').done(setOrderFormListeners);
     });
-    $('.contact-me-btn').click(()=> {
-        openModal('form-order').done(setOrderFormListeners);
+    $('.my-portfolio-card').mouseenter((e)=> {
+        let elem = e.target;
+        if (!$(elem).hasClass('my-portfolio-card')) {
+            elem =   $(elem).parents('.my-portfolio-card')          
+        }
+        loadPopup('portfolio-popup', elem).done(() => {
+            setPopupMouseLeave();
+            $('button[data-action="openOrderForm"]').click(() => {
+                openModal('form-order').done(setOrderFormListeners);
+            });
+        });
     })
-});
+    $('.list-and-photo li').mouseenter((e) => {
+        $(e.target).parents('.list-and-photo').children('.list-and-photo__img').empty();
+        const fileName = $(e.target).data("imgFile");
+        const layoutRawHTML = `<img src="img/for-lists/${fileName}" alt="" />`
+        $(e.target).parents('.list-and-photo').children('.list-and-photo__img').append($(layoutRawHTML).addClass('fade-in'));
+    })
+}
 
 const setTheme = (themeClass) => {
     $('html').removeClass();
@@ -94,6 +114,12 @@ const setOrderFormListeners = () => {
     })
 }
 
+const setPopupMouseLeave = () => {
+    $('.popup').mouseleave(() => {
+        destroyPopup();
+    })
+}
+
 const sendOrder = (formInfo) => {
     console.log(formInfo);
     // TODO: отправка e-mail, сообщения ВК, телеграм
@@ -108,6 +134,17 @@ const openModal = (fileName) => {
     });
 }
 
+const loadPopup = (fileName, parentElement) => {
+    return $.get(`../popups/${fileName}.html`, (data) => {
+        destroyPopup();
+        $(parentElement).append($(data).addClass('popup fade-in'));
+    });
+}
+
 const destroyModal = () => {
     $('.modal').remove();
+}
+
+const destroyPopup = () => {
+    $('.popup').remove();
 }

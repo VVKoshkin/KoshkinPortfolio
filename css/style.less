@@ -35,6 +35,7 @@
   --contactMeBgc: #e1eff1;
   --contactMeHeadlineColor: #8ebdc8;
   --typesetColor: #71a2ad;
+  --listAndPhotoBoxShadowColor: #abc;
 }
 
 :root[class="theme-dark"] {
@@ -54,6 +55,7 @@
   --contactMeBgc: #2b2c34;
   --contactMeHeadlineColor: #c75633;
   --typesetColor: #faab60;
+  --listAndPhotoBoxShadowColor: #234;
 }
 
 :root {
@@ -62,6 +64,7 @@
   --footerBgc: var(--contactMeBgc);
   --footerLinkColor: var(--typesetColor);
   --footerLinkHoverColor: var(--contactMeHeadlineColor);
+  --boxShadowColor: rgba(0,0,0,0.25);
 }
 
 body {
@@ -167,7 +170,7 @@ body {
   background-color: var(--btnColor);
   border-radius: 10px;
   color: white;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px var(--boxShadowColor);
 }
 
 .btn:hover {
@@ -184,7 +187,7 @@ body {
 }
 
 .header-btn {
-  padding: 25px 150px;
+  padding: 25px 100px;
 }
 
 .what-order {
@@ -200,7 +203,7 @@ body {
   padding-top: 30px;
   text-align: center;
   background-color: var(--cardBgc);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px var(--boxShadowColor);
   border-radius: 10px;
 }
 
@@ -261,7 +264,10 @@ body {
 }
 
 .list-and-photo__img > img {
-  max-width: 150px;
+  max-width: 250px;
+  box-shadow: 3px 3px 7px 3px var(--listAndPhotoBoxShadowColor);
+  background-color: #fff;
+  padding: 15px;
 }
 
 .list-and-photo > ul > li {
@@ -313,6 +319,7 @@ body {
   padding-right: 30px;
   padding-left: 30px;
   cursor: pointer;
+  position: relative;
 }
 
 .my-portfolio-card > img {
@@ -401,7 +408,7 @@ body {
   // background: linear-gradient(0deg, #8EBDC8, #8EBDC8),
   // linear-gradient(0deg, #8D8D8D, #8D8D8D),
   // #8D8D8D;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px var(--boxShadowColor);
   border-radius: 10px;
   padding: 25px 185px;
 }
@@ -433,4 +440,8 @@ body {
 .about-work {
   padding-top: 60px;
   padding-bottom: 90px;
+}
+
+.footer-attribute {
+  display: block; text-align: center; color:var(--footerLinkColor)
 }
