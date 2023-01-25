@@ -1,6 +1,18 @@
 @navbarHeight: 95px;
 @changeColorDuration: .5s;
 
+// Mode: Desktop
+@desktop: 1024px;
+@desktop-area: 970px;
+
+// Mode: Tablet
+@tablet: 768px;
+@tablet-area: 750px;
+
+// Mode: Mobile
+@mobile: 360px;
+@mobile-area: 320px;
+
 * {
   transition: color @changeColorDuration, left @changeColorDuration,
     background-color @changeColorDuration;
@@ -54,6 +66,36 @@
 
 body {
   background-color: var(--bodyBgc);
+}
+
+.headline {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #C75633;
+}
+
+.headline-big {
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+.typeset-big {
+  font-size: 32px;
+  line-height: 38px;
+  text-align: center;
+  color: #B5C8CF;
+  margin-bottom: 60px;
+}
+
+.typeset {
+  font-size: 24px;
+  line-height: 28px;
 }
 
 .header-bgi {
@@ -311,6 +353,7 @@ body {
 
 .slider-arrow:hover {
   color: var(--sliderArrowHoverColor);
+  scale: 1.2;
 }
 
 .slider-controller-circle {

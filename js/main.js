@@ -23,6 +23,9 @@ $(() => {
     $('.header-btn[data-action="openOrderForm"]').click(() => {
         openModal('form-order').done(setOrderFormListeners);
     });
+    $('.contact-me-btn').click(()=> {
+        openModal('form-order').done(setOrderFormListeners);
+    })
 });
 
 const setTheme = (themeClass) => {
@@ -81,15 +84,19 @@ const setOrderFormListeners = () => {
         // 4. Описание необязательно, но если есть, тоже надо положить (иначе будет пустая строка)
         formInfo.description = $('#order-form-description').val();
         if (!isBad) {
-            // TODO: отправка e-mail, сообщения ВК, телеграм
+            sendOrder(formInfo);
             openModal('form-confirmed').done(() => {
                 $('.form-confirmed>button').click(() => {
                     destroyModal();
-                    console.log(formInfo)
                 });
             });
         }
     })
+}
+
+const sendOrder = (formInfo) => {
+    console.log(formInfo);
+    // TODO: отправка e-mail, сообщения ВК, телеграм
 }
 
 const openModal = (fileName) => {
