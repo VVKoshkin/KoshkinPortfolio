@@ -16,19 +16,20 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 100;
-  }  
+  }
 }
 
 @keyframes fadeOutAnim {
   0% {
     opacity: 100;
   }
+
   100% {
     opacity: 0;
-  } 
-
+  }
 }
 
 .fade-in {
@@ -47,21 +48,27 @@
   0% {
     background-color: initial;
   }
+
   20% {
     transform: rotate3d(0, 0, 1, 1deg);
   }
+
   40% {
     transform: rotate3d(0, 0, 1, -1deg);
   }
+
   50% {
-    background-color: rgb(247, 223, 223);
+    background-color: #f7dfdf;
   }
+
   60% {
     transform: rotate3d(0, 0, 1, 1deg);
   }
+
   80% {
     transform: rotate3d(0, 0, 1, -1deg);
   }
+
   100% {
     transform: rotate3d(0, 0, 1, 0deg);
     background-color: initial;
@@ -88,7 +95,6 @@
 }
 
 /* ORDER FORM */
-@formFontSize: 22px;
 .modal {
   position: fixed;
   top: 0;
@@ -118,7 +124,7 @@
   background-color: rgba(100, 100, 100, 0.8);
 }
 
-.modal-close > img {
+.modal-close>img {
   max-height: 100%;
   max-width: 100%;
 }
@@ -140,7 +146,7 @@
   padding: 20px 20px;
   border: 1px solid #555;
   border-radius: 10px;
-  font-size: @formFontSize;
+  font-size: 22px;
   color: var(--formTypesetColor);
   background-color: var(--formBgc);
 }
@@ -148,7 +154,7 @@
 .order-form-p {
   margin: 0;
   padding: 0;
-  font-size: @formFontSize;
+  font-size: 22px;
   color: var(--formTypesetColor);
 }
 
@@ -182,7 +188,7 @@
   border-color: #7b7b7b transparent transparent transparent;
 }
 
-.order-form > input[name="connection-type-value"] {
+.order-form>input[name="connection-type-value"] {
   padding: 10px 15px;
   border: 1px solid #555;
   border-radius: 10px;
@@ -199,6 +205,7 @@
   background-color: #777;
   cursor: default;
 }
+
 .btn.disabled:hover {
   background-color: #777;
 }

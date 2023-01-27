@@ -38,12 +38,19 @@ const refreshListeners = () => {
             $('button[data-action="openOrderForm"]').click(() => {
                 openModal('form-order').done(setOrderFormListeners);
             });
+            const contentElem = $(elem).children('input[type="hidden"][name="content"]');
+            const linkElem = $(elem).children('input[type="hidden"][name="link"]');
+            $('.portfolio-popup-content').children('.popup-link').attr('href', $(linkElem).val());
+            $('.portfolio-popup-content').children('.typeset').text($(contentElem).val());          
         });
+    })
+    $('.my-portfolio-cards').mouseleave(() => {
+        destroyPopup();
     })
     $('.list-and-photo li').mouseenter((e) => {
         $(e.target).parents('.list-and-photo').children('.list-and-photo__img').empty();
-        const fileName = $(e.target).data("imgFile");
-        const layoutRawHTML = `<img src="img/for-lists/${fileName}" alt="" />`
+        const fileUri = $(e.target).data("imgFile");
+        const layoutRawHTML = `<img src="${fileUri}" alt="" />`
         $(e.target).parents('.list-and-photo').children('.list-and-photo__img').append($(layoutRawHTML).addClass('fade-in'));
     })
 }
@@ -126,7 +133,7 @@ const sendOrder = (formInfo) => {
 }
 
 const openModal = (fileName) => {
-    return $.get(`../modals/${fileName}.html`, (data) => {
+    return $.get(`${additional_vars.template_uri}/assets/modals/${fileName}.html`, (data) => {
         $('body').append($(data).addClass('modal fade-in').append('<div class="modal-close"><img src="img/cross.png" alt="" /></div>'));
         $('.modal-close').click(() => {
             destroyModal();
@@ -135,7 +142,7 @@ const openModal = (fileName) => {
 }
 
 const loadPopup = (fileName, parentElement) => {
-    return $.get(`../popups/${fileName}.html`, (data) => {
+    return $.get(`${additional_vars.template_uri}/assets/popups/${fileName}.html`, (data) => {
         destroyPopup();
         $(parentElement).append($(data).addClass('popup fade-in'));
     });
