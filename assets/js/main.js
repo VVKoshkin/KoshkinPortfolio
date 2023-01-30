@@ -38,10 +38,15 @@ const refreshListeners = () => {
             $('button[data-action="openOrderForm"]').click(() => {
                 openModal('form-order').done(setOrderFormListeners);
             });
+            const headerElem = $(elem).children('h4.card-headline');
             const contentElem = $(elem).children('input[type="hidden"][name="content"]');
             const linkElem = $(elem).children('input[type="hidden"][name="link"]');
+            const picElem = $(elem).children('img');
+            $('.portfolio-popup-content').children('h4.portfolio-popup__headline').text($(headerElem).text());
             $('.portfolio-popup-content').children('.popup-link').attr('href', $(linkElem).val());
-            $('.portfolio-popup-content').children('.typeset').text($(contentElem).val());          
+            $('.portfolio-popup-content').children('.typeset').text($(contentElem).val());
+            $('.portfolio-popup-content').children('.portfolio-popup__image').attr('src', $(picElem).attr('src'));
+
         });
     })
     $('.my-portfolio-cards').mouseleave(() => {
@@ -134,7 +139,8 @@ const sendOrder = (formInfo) => {
 
 const openModal = (fileName) => {
     return $.get(`${additional_vars.template_uri}/assets/modals/${fileName}.html`, (data) => {
-        $('body').append($(data).addClass('modal fade-in').append('<div class="modal-close"><img src="img/cross.png" alt="" /></div>'));
+        const appendRawHTML = `<div class="modal-close"><img src="${additional_vars.template_uri}/assets/img/cross.png" alt="" /></div>`;
+        $('body').append($(data).addClass('modal fade-in').append(appendRawHTML));
         $('.modal-close').click(() => {
             destroyModal();
         });

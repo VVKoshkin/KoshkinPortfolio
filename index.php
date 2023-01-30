@@ -88,6 +88,8 @@
                   'terms'    => 'карточка-в-портфолио'
                 )
                 ),
+                'posts_per_page' => 2,
+                'paged' => get_query_var( 'page' ),
               'orderby'     => 'date',
               'order'       => 'ASC' ] );
           while ( $query->have_posts() ) {
@@ -99,13 +101,19 @@
             <?php the_title('<h4 class="card-headline">', '</h4>');  ?>
             <input type="hidden" name="content" value="<?php echo get_the_content(); ?>">
             <input type="hidden" name="link" value="<?php echo get_permalink(); ?>">       
-        </div>
-              
+        </div>              
         <?php
         }
         wp_reset_postdata(); // сброс
         ?>
-      </div>
+      </div>      
+        
+    <?php  echo paginate_links( [
+            // 'base'    => user_trailingslashit( wp_normalize_path( get_permalink() .'/%#%/' ) ),
+            'current' => max( 1, get_query_var( 'page' ) ),
+            'total'   => $query->max_num_pages,
+        ] );    ?>
+
       <div class="slider my-portfolio-slider">
         <p class="slider-arrow" id="portfolioSliderPrev">&lt;</p>
         <div class="slider-controller">
@@ -166,9 +174,9 @@
       <button class="contact-me-btn btn" data-action="openOrderForm">Оставить заявку</button>
       <p class="typeset">Или напишите мне на почту/в соцсеть/мессенджер:</p>
       <div class="socnets">
-        <a target="_blank" href="mailto:vlad_zdor_94@mail.ru"><img src="img/socnets/email.png" alt="email" /></a>
-        <a target="_blank" href="https://vk.com/id734769187"><img src="img/socnets/vk.png" alt="VK" /></a>
-        <a target="_blank" href="https://t.me/dsdest"><img src="img/socnets/tg.png" alt="Telegram" /></a>
+        <a target="_blank" href="mailto:vlad_zdor_94@mail.ru"><img src="<?php echo get_template_directory_uri().'/assets/img/socnets/email.png' ?>" alt="email" /></a>
+        <a target="_blank" href="https://vk.com/id734769187"><img src="<?php echo get_template_directory_uri().'/assets/img/socnets/vk.png' ?>" alt="VK" /></a>
+        <a target="_blank" href="https://t.me/dsdest"><img src="<?php echo get_template_directory_uri().'/assets/img/socnets/tg.png' ?>" alt="Telegram" /></a>
       </div>
     </div>
   </section>

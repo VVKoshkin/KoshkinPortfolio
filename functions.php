@@ -69,9 +69,7 @@ function register_custom_post_types(){
 		'show_admin_column'     => true, // авто-создание колонки таксы в таблице ассоциированного типа записи. (с версии 3.5)
 		'show_in_rest'          => null, // добавить в REST API
 		'rest_base'             => null, // $taxonomy
-	] );    
-
-
+	] );  
 
 	register_post_type( 'cards', [
 		'label'  => null,
@@ -104,7 +102,6 @@ function register_custom_post_types(){
 		'rewrite'             => true,
 		'query_var'           => true,
 	] );
-
 
 	register_post_type( 'listElems', [
 		'label'  => null,

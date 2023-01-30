@@ -34,28 +34,51 @@
 
 .portfolio-popup-content a {
     display: grid;
+    align-items: end;
 }
 
 .portfolio-popup__image {
     width: 320px;
     height: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: 0%;
     grid-area: image-grid-area;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-name: downAndUp;
+    animation-iteration-count: infinite;
 }
 
 .portfolio-popup__headline {
     grid-area: header-grid-area;
     margin: 0;
     text-align: left;
+    word-wrap: break-all;
 }
 
 .portfolio-popup__typeset {
     grid-area: typeset-grid-area;
     margin: 0;
     text-align: left;
+    word-wrap: break-all;
 }
 
 .portfolio-popup__btn {
-    padding: 10px 30px;
     width: 100%;
     grid-column: span 1;
+    align-self: end;
+    padding: 20px 30px;
+}
+
+@keyframes downAndUp {
+    0% {
+        object-position: top;
+    }
+    50% {
+        object-position: bottom;
+    }
+    100% {
+        object-position: top;
+    }
 }

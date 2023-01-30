@@ -218,7 +218,7 @@ body {
   font-weight: 700;
   font-size: 20px;
   line-height: 23px;
-  color: #bbd7de;
+  color: #686868;
   margin-bottom: 50px;
 }
 
@@ -300,6 +300,8 @@ body {
 .my-portfolio-card>img {
   width: 515px;
   height: 420px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .my-portfolio-card>.card-headline {

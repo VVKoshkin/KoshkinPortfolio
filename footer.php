@@ -21,7 +21,7 @@
                 href="https://vk.com"
                 class="footer-socnet__link"
                 ><img
-                  src="img/socnets/vk.png"
+                  src=<?php echo get_template_directory_uri().'/assets/img/socnets/vk.png';?>
                   alt=""
                   class="footer-socnet__img"
               /></a>
@@ -30,7 +30,7 @@
                 href="https://t.me"
                 class="footer-socnet__link"
                 ><img
-                  src="img/socnets/tg.png"
+                  src=<?php echo get_template_directory_uri().'/assets/img/socnets/tg.png';?>
                   alt=""
                   class="footer-socnet__img"
               /></a>
