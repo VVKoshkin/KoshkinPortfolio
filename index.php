@@ -79,6 +79,7 @@
 
       <div class="cards my-portfolio-cards">
         <?php
+          $paged  = get_query_var( 'paged' ) ?: 1;
           // выводятся все карточки с таксономией "Тип карточки" = "Карточка в портфолио"
           $query = new WP_Query( [ 'post_type'=>'cards',
               'tax_query' => array(
@@ -89,12 +90,13 @@
                 )
                 ),
                 'posts_per_page' => 2,
-                'paged' => get_query_var( 'page' ),
+                'paged' => $paged,
               'orderby'     => 'date',
               'order'       => 'ASC' ] );
           while ( $query->have_posts() ) {
             $query->the_post();
         ?>
+        
           
         <div class="card my-portfolio-card">
             <img src="<?php the_post_thumbnail_url(); ?>"/>
@@ -106,22 +108,17 @@
         }
         wp_reset_postdata(); // сброс
         ?>
-      </div>      
-        
-    <?php  echo paginate_links( [
-            // 'base'    => user_trailingslashit( wp_normalize_path( get_permalink() .'/%#%/' ) ),
-            'current' => max( 1, get_query_var( 'page' ) ),
-            'total'   => $query->max_num_pages,
-        ] );    ?>
-
-      <div class="slider my-portfolio-slider">
-        <p class="slider-arrow" id="portfolioSliderPrev">&lt;</p>
+      </div>
+      <div class="slider my-portfolio-slider" data-cur-page-num="<?php echo $paged; ?>" data-total-pages="<?php echo $query->max_num_pages; ?>">
+        <p class="slider-arrow" data-navigation-type="prev" id="portfolioSliderPrev">&lt;</p>
         <div class="slider-controller">
-          <div class="slider-controller-circle"></div>
-          <div class="slider-controller-circle active"></div>
-          <div class="slider-controller-circle"></div>
+          <?php for($i=1; $i<=$query->max_num_pages; $i++) { ?>
+            <div data-page-num="<?php echo $i; ?>" class="slider-controller-circle <?php echo ($i==$paged) ? 'active':'';?>"></div>
+          <?php
+          }
+          ?>
         </div>
-        <p class="slider-arrow" id="portfolioSliderNext">&gt;</p>
+        <p class="slider-arrow" data-navigation-type="next" id="portfolioSliderNext">&gt;</p>
       </div>
       <p class="grey-text">
         Кстати, этот сайт-портфолио тоже создан мной и сидит на WordPress :)

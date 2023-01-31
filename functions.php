@@ -7,6 +7,39 @@ add_action('after_setup_theme', 'register_navbars');
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 10, 4);
 
+add_action( 'wp_ajax_loadPortfolioPage', 'load_portfolio_page' );
+add_action( 'wp_ajax_nopriv_loadPortfolioPage', 'load_portfolio_page' );
+
+
+function load_portfolio_page() {
+	$paged  = $_POST['pageToLoad'] ?: 1;
+	$result = [];
+          // выводятся все карточки с таксономией "Тип карточки" = "Карточка в портфолио"
+          $query = new WP_Query( [ 'post_type'=>'cards',
+              'tax_query' => array(
+                array(
+                  'taxonomy' => 'card_type',
+                  'field'    => 'slug',
+                  'terms'    => 'карточка-в-портфолио'
+                )
+                ),
+                'posts_per_page' => 2,
+                'paged' => $paged,
+              'orderby'     => 'date',
+              'order'       => 'ASC' ] );
+          while ( $query->have_posts() ) {
+            $query->the_post();
+			$elem = [
+				"cardImage" => get_the_post_thumbnail_url(),
+				"title" => get_the_title(),
+				"content" => get_the_content(),
+				"link" => get_permalink()
+			];
+			array_push($result, $elem);
+		  }
+	echo json_encode($result);
+	die;
+}
 // действия
 function register_custom_post_types(){
 
@@ -156,10 +189,12 @@ function add_css_and_scripts() {
 	wp_enqueue_script('jquery', in_footer:true);
 
     wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', in_footer:true); 
+    wp_enqueue_script('ajaxPortfolioPagination', get_template_directory_uri() . '/assets/js/ajax-portfolio-pagination.js', in_footer:true); 
     // template_directory_uri передаётся как переменная в скрипт, т.к. там для форм и всплывашек
     // используются файлы из popups и modals шаблоны соответственно
     // обращение к переменной: additional_vars.template_uri
-    wp_localize_script( 'main', 'additional_vars', array( 'template_uri' => get_template_directory_uri() ) );
+    wp_localize_script( 'main', 'additional_vars', array( 'template_uri' => get_template_directory_uri(),
+															'admin_ajax' => admin_url( "admin-ajax.php" ) ) );
 }
 
 function register_navbars() {
