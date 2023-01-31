@@ -2,6 +2,7 @@
 add_theme_support( 'post-thumbnails' );
 add_action( 'init', 'register_custom_post_types' );
 
+
 add_action('wp_enqueue_scripts','add_css_and_scripts');
 add_action('after_setup_theme', 'register_navbars');
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
