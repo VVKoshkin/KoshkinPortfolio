@@ -89,7 +89,7 @@
                   'terms'    => 'карточка-в-портфолио'
                 )
                 ),
-                'posts_per_page' => 2,
+                'posts_per_page' => 4,
                 'paged' => $paged,
               'orderby'     => 'date',
               'order'       => 'ASC' ] );
@@ -109,6 +109,7 @@
         wp_reset_postdata(); // сброс
         ?>
       </div>
+      <?php if($query->max_num_pages > 1) {?>
       <div class="slider my-portfolio-slider" data-cur-page-num="<?php echo $paged; ?>" data-total-pages="<?php echo $query->max_num_pages; ?>">
         <p class="slider-arrow" data-navigation-type="prev" id="portfolioSliderPrev">&lt;</p>
         <div class="slider-controller">
@@ -120,6 +121,7 @@
         </div>
         <p class="slider-arrow" data-navigation-type="next" id="portfolioSliderNext">&gt;</p>
       </div>
+      <?php } ?>
       <p class="grey-text">
         Кстати, этот сайт-портфолио тоже создан мной и сидит на WordPress :)
       </p>

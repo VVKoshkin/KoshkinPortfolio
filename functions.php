@@ -23,7 +23,7 @@ function load_portfolio_page() {
                   'terms'    => 'карточка-в-портфолио'
                 )
                 ),
-                'posts_per_page' => 2,
+                'posts_per_page' => 4,
                 'paged' => $paged,
               'orderby'     => 'date',
               'order'       => 'ASC' ] );

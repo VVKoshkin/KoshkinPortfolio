@@ -18,7 +18,8 @@ $(() => {
         else if (navigationType === 'next')
             pageToNavigate++;
         if (pageToNavigate > totalPages) pageToNavigate = 1;
-        if (pageToNavigate < 1) pageToNavigate = totalPages;    
+        if (pageToNavigate < 1) pageToNavigate = totalPages; 
+        if (pageToNavigate === curPage) return;   
         makePage(pageToNavigate);
     });
 });
