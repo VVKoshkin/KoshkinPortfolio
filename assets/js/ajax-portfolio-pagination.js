@@ -57,28 +57,7 @@ const makePage = (pageNum) => {
                 $('.my-portfolio-cards').append($(cardRawHTML));
             });
             $('.my-portfolio-cards').children('.in-load').remove();
-
-            $('.my-portfolio-card').mouseenter((e) => {
-                let elem = e.target;
-                if (!$(elem).hasClass('my-portfolio-card')) {
-                    elem = $(elem).parents('.my-portfolio-card')
-                }
-                loadPopup('portfolio-popup', elem).done(() => {
-                    setPopupMouseLeave();
-                    $('button[data-action="openOrderForm"]').click(() => {
-                        openModal('form-order').done(setOrderFormListeners);
-                    });
-                    const headerElem = $(elem).children('h4.card-headline');
-                    const contentElem = $(elem).children('input[type="hidden"][name="content"]');
-                    const linkElem = $(elem).children('input[type="hidden"][name="link"]');
-                    const picElem = $(elem).children('img');
-                    $('.portfolio-popup-content').children('h4.portfolio-popup__headline').text($(headerElem).text());
-                    $('.portfolio-popup-content').children('.popup-link').attr('href', $(linkElem).val());
-                    $('.portfolio-popup-content').children('.typeset').text($(contentElem).val());
-                    $('.portfolio-popup-content').children('.portfolio-popup__image').attr('src', $(picElem).attr('src'));
-
-                });
-            })
+            setPortfolioCardsListener();
         }
     });    
 }   

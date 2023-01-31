@@ -10,10 +10,7 @@ $(() => {
     let pageTheme = localStorage.getItem('page-theme');
     if (pageTheme == null) pageTheme = 'theme-light';
     setTheme(pageTheme);
-    refreshListeners();
-});
 
-const refreshListeners = () => {
     // хамбургер меню - для адаптива
     $('.navbar-hamburger').click(() => {
         $('.navbar-elements').toggle();
@@ -24,20 +21,35 @@ const refreshListeners = () => {
         $('html').toggleClass('theme-light theme-dark');
         localStorage.setItem('page-theme', $('html').attr('class'));
     });
+    setMakeOrderListeners();
+    setPortfolioCardsListener();
+    setListListeners();
+    $('.my-portfolio-cards').mouseleave(() => {
+        destroyPopup();
+    })
+});
+
+const setTheme = (themeClass) => {
+    $('html').removeClass();
+    $('html').addClass(themeClass);
+}
+
+const setMakeOrderListeners = () => {
     // открыть форму перезвоните мне
     $('button[data-action="openOrderForm"]').click(() => {
         openModal('form-order').done(setOrderFormListeners);
     });
-    $('.my-portfolio-card').mouseenter((e)=> {
+}
+
+const setPortfolioCardsListener = () => {
+    $('.my-portfolio-card').mouseenter((e) => {
         let elem = e.target;
         if (!$(elem).hasClass('my-portfolio-card')) {
-            elem =   $(elem).parents('.my-portfolio-card')          
+            elem = $(elem).parents('.my-portfolio-card')
         }
         loadPopup('portfolio-popup', elem).done(() => {
             setPopupMouseLeave();
-            $('button[data-action="openOrderForm"]').click(() => {
-                openModal('form-order').done(setOrderFormListeners);
-            });
+            setMakeOrderListeners();
             const headerElem = $(elem).children('h4.card-headline');
             const contentElem = $(elem).children('input[type="hidden"][name="content"]');
             const linkElem = $(elem).children('input[type="hidden"][name="link"]');
@@ -46,32 +58,17 @@ const refreshListeners = () => {
             $('.portfolio-popup-content').children('.popup-link').attr('href', $(linkElem).val());
             $('.portfolio-popup-content').children('.typeset').text($(contentElem).val());
             $('.portfolio-popup-content').children('.portfolio-popup__image').attr('src', $(picElem).attr('src'));
-
         });
     })
-    $('.my-portfolio-cards').mouseleave(() => {
-        destroyPopup();
-    })
+}
+
+const setListListeners = () => {
     $('.list-and-photo li').mouseenter((e) => {
         $(e.target).parents('.list-and-photo').children('.list-and-photo__img').empty();
         const fileUri = $(e.target).data("imgFile");
         const layoutRawHTML = `<img src="${fileUri}" alt="" />`
         $(e.target).parents('.list-and-photo').children('.list-and-photo__img').append($(layoutRawHTML).addClass('fade-in'));
     })
-}
-
-const setTheme = (themeClass) => {
-    $('html').removeClass();
-    $('html').addClass(themeClass);
-}
-
-const showUnFilled = (domElem) => {
-    // если делать это подряд одно за другим, не работает, нужен хотя бы небольшой таймаут
-    setTimeout(() => {
-        $(domElem).addClass('shakeAnimClass');
-    }, 5
-    )
-    $(domElem).removeClass('shakeAnimClass');
 }
 
 const setOrderFormListeners = () => {
@@ -130,6 +127,15 @@ const setPopupMouseLeave = () => {
     $('.popup').mouseleave(() => {
         destroyPopup();
     })
+}
+
+const showUnFilled = (domElem) => {
+    // если делать это подряд одно за другим, не работает, нужен хотя бы небольшой таймаут
+    setTimeout(() => {
+        $(domElem).addClass('shakeAnimClass');
+    }, 5
+    )
+    $(domElem).removeClass('shakeAnimClass');
 }
 
 const sendOrder = (formInfo) => {

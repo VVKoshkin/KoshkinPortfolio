@@ -14,7 +14,7 @@
   --btnColorHover: #71a2ad;
   --cardBgc: #8ebdc8;
   --cardHeadlineColor: #f5fafa;
-  --cardPriceColor: #bbd7de;
+  --cardPriceColor: #EDEDED;
   --listLiColor: #3d4857;
   --contactMeBgc: #e1eff1;
   --contactMeHeadlineColor: #8ebdc8;
@@ -218,7 +218,7 @@ body {
   font-weight: 700;
   font-size: 20px;
   line-height: 23px;
-  color: #686868;
+  color: var(--cardPriceColor);
   margin-bottom: 50px;
 }
 
