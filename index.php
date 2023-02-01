@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header('home'); ?>
 <main class="main">
   <section class="what-order" id="what-order">
     <div class="container">

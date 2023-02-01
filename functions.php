@@ -196,6 +196,11 @@ function add_css_and_scripts() {
     // обращение к переменной: additional_vars.template_uri
     wp_localize_script( 'main', 'additional_vars', array( 'template_uri' => get_template_directory_uri(),
 															'admin_ajax' => admin_url( "admin-ajax.php" ) ) );
+															
+	if (is_page('calculation')) {
+    	wp_enqueue_style( 'calc', get_template_directory_uri() . '/assets/css/calc.css' );
+    	wp_enqueue_script('calc', get_template_directory_uri() . '/assets/js/calculation.js', in_footer:true); 
+	}
 }
 
 function register_navbars() {
