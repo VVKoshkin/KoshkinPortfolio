@@ -16,6 +16,14 @@
     box-shadow: 0 0 10px 3px var(--popupBoxShadowColor);
 }
 
+/* draw error popup */
+.error-popup-content {
+    padding: 100px 150px;
+    background-color: rgba(230,0,0,.5);
+    border: 1px dotted #ABC;
+    color: #FFF;
+}
+
 /* portfolio-popup-content */
 .portfolio-popup-content {
     background-color: var(--popupBgc);

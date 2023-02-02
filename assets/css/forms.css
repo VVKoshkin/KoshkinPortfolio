@@ -46,7 +46,6 @@
 
 @keyframes shake {
   0% {
-    background-color: initial;
   }
 
   20% {
@@ -71,7 +70,6 @@
 
   100% {
     transform: rotate3d(0, 0, 1, 0deg);
-    background-color: initial;
   }
 }
 
