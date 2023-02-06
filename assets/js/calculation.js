@@ -1,6 +1,20 @@
+const kBackendDic = {
+    'noidea': 1,
+    'Spring': 8,
+    'Flask': 6,
+    'WordPress': 1,
+    'OpenCart': 5,
+    'Joomla': 5,
+    'none': 0
+};
+
 const blocksAndTheirListeners = {
     'calc-get-type': () => {
         $('#otherTypeDesc').parent('label').hide();
+        for (let val in siteTypes) {
+            const optionHTML = `<option value="${val}">${siteTypes[val]}</option>`
+            $('#calc-site-type').append($(optionHTML));
+        }
         $('#calc-site-type').change((e) => {
             const optionValue = e.target.selectedOptions[0].value;
             if (optionValue === "other")
@@ -73,7 +87,6 @@ const blocksAndTheirListeners = {
                 results[`page-${i + 1}`] = elemResult;
             });
             addToResults('site-pages', results);
-            console.log(results);
             renderBlock('calc-design-has-adaptive');
         })
     },
@@ -106,7 +119,7 @@ const blocksAndTheirListeners = {
     },
     'calc-get-has-backend': () => {
         const siteType = getFromResults('site-type');
-        if (['personalBlog', 'portal', 'socnet', 'shop'].indexOf(siteType) > -1) {
+        if (['personalBlog', 'portal', 'socnet', 'shop', 'forum'].indexOf(siteType) > -1) {
             addToResults('site-need-backend', true);
             renderBlock('calc-get-backend-type', true);
             return;
@@ -123,8 +136,31 @@ const blocksAndTheirListeners = {
         })
     },
     'calc-get-backend-type': () => {
-        return;
+        for (let val in backendTypes) {
+            const optionHTML = `<option value="${val}">${backendTypes[val]}</option>`
+            $('#calc-backend-type').append($(optionHTML));
+        }
     }
+}
+
+const siteTypes = {
+    'Landing': 'Лэндинг',
+    'personalBlog': 'Личный блог',
+    'visit': 'Сайт-визитка',
+    'portal': 'Корпортативный или новостной портал',
+    'socnet': 'Социальная сеть',
+    'shop': 'Интернет-магазин',
+    'forum': 'Форум',
+    'other': 'Что-то другое',
+}
+
+const backendTypes = {
+    'WordPress': 'CMS WordPress',
+    'OpenCart': 'CMS OpenCart',
+    'Joomla': 'CMS Joomla',
+    'Flask': 'Собственный движок на Python Flask',
+    'Spring': 'Собственный движок на Java Spring Boot',
+    'noidea': 'Нужна консультация/Мне без разницы',
 }
 
 $(() => {
@@ -143,6 +179,7 @@ const renderStart = () => {
 }
 
 const renderBlock = (blockId, isFinal = false) => {
+    $(window).scrollTop(0);
     $('.calc-btn').hide();
     $('#calc-next-btn').off();
     $('.calc-block').hide();
@@ -184,28 +221,94 @@ const getFromResults = (fieldName) => {
 const setFinal = () => {
     if ($('#calc-backend-type').is(':visible') && !checkFilled(['#calc-backend-type'])) return;
     addToResults('site-backend-type', $('#calc-backend-type').val());
-    const resultsJSON = JSON.parse($('#results-input').val());
+
+    $('.calc-block').hide();
+    $('.calc-btn').hide();
+    $('#calc-finish').show();
+    $(window).scrollTop(0);
 
     const resultPrice = (totalPages, totalSimpleScreens, totalHardScreens, totalAnimations, kBackend, hasDesign, hasResponsiveDesign, hasOffcanvas) => {
-        /* смысл формулы:
-            !hasDesign * (totalPages * 2000 * (4 - hasResponsiveDesign))
-            если дизайна нет, его надо сначала сделать
-            если вдруг клиенту не надо адаптивный дизайн, а только под комп, то скидка на этот пункт 2000 рублей, иначе по 8000 за страницу + адаптив
-            3000 + 1000 * (totalPages - 1)
-            далее 3000 базово за 1 свёрстанную страницу. 1 свёрстанная страница это хэдер, футер и 1 секция
-            но поскольку хэдер и футер как правило повторяются, то 3000 только за 1 страницу, а дальше по 1000
-            hasDesign * ((totalSimpleScreens + 2 * totalHardScreens - 3 - (totalPages - 1) - !hasResponsiveDesign * 0.3 * (totalSimpleScreens + totalHardScreens)) * 1000 + totalAnimations * 500)
-            следующее - если есть дизайн уже, тогда только вёрстка. каждый дополнительный экран 1000 рублей. сложные по двойному тарифу.
-            каждая анимация ещё 500 рублей. за отсутствие адаптива небольшое понижение ценника
-            если же дизайна нет, то 
-            !hasDesign * 1500 * totalPages * (4 - hasResponsiveDesign)
-            ориентировочно по 6000 рублей за страницу поверху тех 3 тысяч базовых, по 4500 если без адаптивного дизайна 
-            оффканвасы ориентрировочно 2 тысячи, ибо там немного посложнее, там ведь и JS надо настроить, и слушателей навешать и всё такое
-            последнее - это бэкенд, тут всё просто, по 5000 за посадку одной страницы базово, а дальше в зависимости от выбранного бэка всё или сложнее,
-            или может легче даже, или так же. kBackend - коэффициент сложности посадки
-        */
-        return !hasDesign * (totalPages * 2000 * (4 - hasResponsiveDesign)) + 3000 + 1000 * (totalPages - 1) + hasDesign * ((totalSimpleScreens + 2 * totalHardScreens - 3 - (totalPages - 1) - !hasResponsiveDesign * 0.3 * (totalSimpleScreens + totalHardScreens)) * 1000 + totalAnimations * 500) + !hasDesign * 1500 * totalPages * (4 - hasResponsiveDesign) + 2000 * hasOffcanvas + 5000 * totalPages * kBackend;
+        const designPrice = !hasDesign * (totalPages * 2000 * (4 - hasResponsiveDesign));
+        const layoutPriceIfHasPagesInfo = hasDesign * (2000 + 500 * (totalPages - 1) + ((totalSimpleScreens + 2 * totalHardScreens - 3 - (totalPages - 1) - !hasResponsiveDesign * 0.3 * (totalSimpleScreens + totalHardScreens)) * 1000 + totalAnimations * 500))
+        const layoutPriceIfNoPagesInfo = !hasDesign * 1500 * totalPages * (4 - hasResponsiveDesign);
+        const offcanvas = 1000 * hasOffcanvas;
+        const backend = 5000 * totalPages * kBackend;
+        return {
+            'Дизайн-макет': designPrice,
+            'Вёрстка': layoutPriceIfHasPagesInfo,
+            'Вёрстка (ориентировочно для такого количества страниц)': layoutPriceIfNoPagesInfo,
+            'Модальные окна': offcanvas,
+            'Бэкенд': backend
+        };
     }
-    
+    const totalPages = getFromResults('site-total-pages');
+    const totalSimpleScreens = () => {
+        let res = 0;
+        if (!getFromResults('site-has-design'))
+            return res;
+        for (let i = 1; i <= totalPages; i++) {
+            res += parseInt(getFromResults('site-pages')[`page-${i}`]['simpleSectionsAmount']);
+        }
+        return res;
+    }
+    const totalHardScreens = () => {
+        let res = 0;
+        if (!getFromResults('site-has-design'))
+            return res;
+        for (let i = 1; i <= totalPages; i++) {
+            res += parseInt(getFromResults('site-pages')[`page-${i}`]['hardSectionsAmount']);
+        }
+        return res;
+    }
+    const totalAnimations = () => {
+        let res = 0;
+        if (!getFromResults('site-has-design'))
+            return res;
+        for (let i = 1; i <= totalPages; i++) {
+            const simpleHasAnim = getFromResults('site-pages')[`page-${i}`]['simpleHasAnim'];
+            const simpleSectionsAnimAmount = getFromResults('site-pages')[`page-${i}`]['simpleSectionsAnimAmount'];
+            res += parseInt(simpleHasAnim ? (simpleSectionsAnimAmount !== '' ? simpleSectionsAnimAmount : 0) : 0);
 
+            const hardHasAnim = getFromResults('site-pages')[`page-${i}`]['hardHasAnim'];
+            const hardSectionsAnimAmount = getFromResults('site-pages')[`page-${i}`]['hardSectionsAnimAmount'];
+            res += parseInt(hardHasAnim ? (hardSectionsAnimAmount !== '' ? hardSectionsAnimAmount : 0) : 0);
+        }
+        return res;
+    }
+    const kBackend = () => {
+        if (!getFromResults('site-need-backend')) return 0;
+        return kBackendDic[getFromResults('site-backend-type')]
+    }
+    // hasDesign, hasResponsiveDesign, hasOffcanvas
+    const hasDesign = getFromResults('site-has-design');
+    // hard to explain, but: undefined || <some boolean value> = <some boolean value>
+    const hasResponsiveDesign = getFromResults('site-design-has-adaptive') || getFromResults('site-need-adaptive');
+    const hasOffcanvas = getFromResults('site-need-offcanvas');
+    const result = resultPrice(totalPages, totalSimpleScreens(), totalHardScreens(), totalAnimations(), kBackend(), hasDesign, hasResponsiveDesign, hasOffcanvas);
+    drawEstimateTable(result);
+    $('button[data-action="openOrderForm"]').show();
+    // автозаполнение текста заказа
+    $('button[data-action="openOrderForm"]').click(() => {
+    });
+}
+
+const drawEstimateTable = (rows) => {
+    let sum = 0;
+    for (let curRowState in rows) {
+        const curRowPrice = rows[curRowState];
+        if (curRowPrice === 0) continue;
+        const rowLayoutHTML = `
+                <tr>
+                    <td>${curRowState}</td>
+                    <td>${curRowPrice}</td>
+                </tr>`;
+        sum += curRowPrice;
+        $('#estimate-table tbody').append($(rowLayoutHTML));
+    }
+    const rowLayoutHTML = `
+                <tr>
+                    <td>Итого</td>
+                    <td>${sum}</td>
+                </tr>`;
+    $('#estimate-table tbody').append($(rowLayoutHTML));
 }

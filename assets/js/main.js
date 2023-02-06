@@ -72,6 +72,14 @@ const setListListeners = () => {
 }
 
 const setOrderFormListeners = () => {
+    if ($('input[name="results-input"]').length) {
+        const desc = `Нужно сделать сайт: ${getFromResults('site-type') === 'other' ? getFromResults('site-type-desc') : siteTypes[getFromResults('site-type')]} на ${getFromResults('site-total-pages')} страниц.
+Дизайн макет${getFromResults('site-has-design') ? ' уже имеется' : 'а нет.'}
+Сайт ${getFromResults('site-design-has-adaptive') || getFromResults('site-need-adaptive') ? '' : 'не '}должен быть адаптивным. ${getFromResults('site-need-offcanvas') ? 'Имеются' : 'Не имеются'} модальные окна.
+Бэкенд для сайта ${getFromResults('site-need-backend') ? 'должен быть: ' + backendTypes[getFromResults('site-backend-type')] : 'не нужен'}`;
+
+        $('textarea[name="description"]').val(desc);
+    }
     // при выборе типа "как связаться" отображается input
     $('#connectionType').change((e) => {
         // $('.order-form').remove('input');

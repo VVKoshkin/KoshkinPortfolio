@@ -49,7 +49,7 @@ label {
     display: flex;
     justify-content: space-between;
 }
-input {
+input.calc-input {
     align-self: center;
     background-color: var(--formSelectBgc);
     color: var(--formSelectListColor);
@@ -58,9 +58,8 @@ input {
     padding: 10px 15px;
 }
 
-input:disabled {
+input.calc-input:disabled {
     background-color: revert;
-
 }
 
 .btns {
@@ -77,4 +76,11 @@ input:disabled {
 table,tr,th,td {
     border:1px solid black;
     border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+#estimate-table {
+    margin-bottom: 40px;
+    width: 100%;
+    text-align: left;
 }

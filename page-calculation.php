@@ -12,16 +12,9 @@
             <div class="inner">
                 <select name="site-type" id="calc-site-type">
                     <option value="none">--Выбрать--</option>
-                    <option value="Landing">Лэндинг</option>
-                    <option value="personalBlog">Личный блог</option>
-                    <option value="visit">Сайт-визитка</option>
-                    <option value="portal">Корпортативный или новостной портал</option>
-                    <option value="socnet">Социальная сеть</option>
-                    <option value="shop">Интернет-магазин</option>
-                    <option value="other">Что-то другое</option>
                 </select>
-                <label class="typeset">Что именно?<input type="text" name="otherTypeDesc" id="otherTypeDesc"></label>
-                <label class="typeset">Количество страниц:<input type="number" name="sitePageAmount" id="sitePageAmount"></label>
+                <label class="typeset">Что именно?<input class="calc-input" type="text" name="otherTypeDesc" id="otherTypeDesc"></label>
+                <label class="typeset">Количество страниц:<input class="calc-input" type="number" name="sitePageAmount" id="sitePageAmount"></label>
             </div>
         </div>
         <div class="calc-block get-has-design" id="calc-has-design">
@@ -38,12 +31,12 @@
             <div class="calc-block-pages-grid">
                 <div class="calc-block-page">
                     <p class="typeset-big">Страница ...</p>
-                    <label class="typeset" name="simpleSectionsAmount">Сколько экранов страницы вы бы оценили как простые:<input type="number"></label>
-                    <label class="typeset" name="hardSectionsAmount">Сколько экранов страницы вы бы оценили как сложные:<input type="number"></label>
-                    <label class="typeset" name="simpleHasAnim">Будут ли анимации на простых страницах<input type="checkbox"></label>
-                    <label class="typeset" name="simpleSectionsAnimAmount">Сколько всего элементов простых экранов<br> будут подвергнуты анимации:<input disabled type="number"></label>
-                    <label class="typeset" name="hardHasAnim">Будут ли анимации на сложных страницах<input type="checkbox"></label>
-                    <label class="typeset" name="hardSectionsAnimAmount">Сколько всего элементов сложных экранов<br> будут подвергнуты анимации:<input disabled type="number"></label>
+                    <label class="typeset" name="simpleSectionsAmount">Сколько экранов страницы вы бы оценили как простые:<input class="calc-input" type="number"></label>
+                    <label class="typeset" name="hardSectionsAmount">Сколько экранов страницы вы бы оценили как сложные:<input class="calc-input" type="number"></label>
+                    <label class="typeset" name="simpleHasAnim">Будут ли анимации на простых страницах<input class="calc-input" type="checkbox"></label>
+                    <label class="typeset" name="simpleSectionsAnimAmount">Сколько всего элементов простых экранов<br> будут подвергнуты анимации:<input class="calc-input" disabled type="number"></label>
+                    <label class="typeset" name="hardHasAnim">Будут ли анимации на сложных страницах<input class="calc-input" type="checkbox"></label>
+                    <label class="typeset" name="hardSectionsAnimAmount">Сколько всего элементов сложных экранов<br> будут подвергнуты анимации:<input class="calc-input" disabled type="number"></label>
                 </div>
             </div>
         </div>
@@ -80,17 +73,11 @@
             </div>
         </div>
         <div class="calc-block get-backend-type" id="calc-get-backend-type">
-            <h4 class="headline">Какой будет бэкенд?</h4>
+            <h4 class="headline">Есть ли какие-то пожелания по бэкенду?</h4>
             <p class="typeset">Бэкенд - это то, что наполняет контентом сайт, забирая и размещая у себя данные из управляемой пользователем базы данных</p>
             <div class="inner">
                 <select name="" id="calc-backend-type">
                     <option value="none">--Выбрать--</option>
-                    <option value="WordPress">CMS WordPress</option>
-                    <option value="OpenCart">CMS OpenCart</option>
-                    <option value="Joomla">CMS Joomla</option>
-                    <option value="Flask">Собственный движок на Python Flask</option>
-                    <option value="Spring">Собственный движок на Java Spring Boot</option>
-                    <option value="noidea">Нужна консультация/Мне без разницы</option>
                 </select>
             </div>
         </div>  
@@ -99,30 +86,18 @@
         <button class="btn calc-btn" id="calc-finish-btn">Завершить опрос</button>
         <div class="calc-block calc-finish" id="calc-finish">
             <h4 class="headline">Результаты расчёта</h4>
-            <table class="inner typeset">
+            <p class="typeset">Напоминаю, что эта цена и смета очень ориентировочная и может бы как увеличена, так и уменьшена</p>
+            <table class="inner typeset" id="estimate-table">
+                <thead>
                 <tr>
                     <th class="typeset-big">Наименование</th>
                     <th class="typeset-big">Значение</th>
                 </tr>
-                </tr>
-                    <td>val1</td>
-                    <td>50р</td>
-                </tr>
-                <tr>
-                    <td>val2</td>
-                    <td>50р</td>
-                </tr>
-                <tr>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>Итого</td>
-                    <td>1000 рублей</td>
-                </tr>
+                </thead>
+                <tbody>
+                </tbody>
             </table>
         <button class="btn calc-btn" data-action="openOrderForm">Оставить заявку</button>
-
         </div>
     </div>
 </section>
