@@ -199,8 +199,8 @@ body {
 }
 
 .what-order-card img {
-  width: 350px;
-  height: 350px;
+  width: 100%;
+  height: auto;
   margin-bottom: 30px;
 }
 
@@ -299,7 +299,7 @@ body {
 }
 
 .my-portfolio-card>img {
-  width: 515px;
+  width: 100%;
   height: 420px;
   object-fit: cover;
   object-position: top;
@@ -385,7 +385,9 @@ body {
 .contact-me-btn {
   box-shadow: 0px 4px 4px var(--boxShadowColor);
   border-radius: 10px;
-  padding: 25px 185px;
+  /* padding: 25px 185px; */
+  height: 80px;
+  width: 590px;
 }
 
 .typeset {

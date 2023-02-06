@@ -1,39 +1,70 @@
-@media screen and (max-width: 1200px) {
-
-    .navbar {
-        display: block;
-    }
-
-    .navbar-logo {
-        display: inline-block;
+@media screen and (max-width: 1100px) {
+    .container {
+        width: 90%;
     }
 
     .navbar-hamburger {
-        display: inline-block;
-        vertical-align: middle;
-        float: right;
-        margin-top: 5px;
+        display: block;
     }
 
     .navbar-elements {
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: var(--navbarBgc);
         flex-direction: column;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        align-items: baseline;
-        margin-left: 0;
+        justify-content: space-around;
+        z-index: 3;
+        margin-top: 85px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .what-order-cards {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+
+@media screen and (max-width: 430px) {
+
+    .header-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .what-order-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .list-and-photo__img {
         display: none;
     }
 
-    .navbar-elements>* {
-        margin-bottom: 20px;
+    .list-and-photo>ul {
+        max-width: 100%;
     }
 
-    .navbar-element__button {
-        width: 100%;
+    .my-portfolio-cards {
+        grid-template-columns: 1fr;
     }
 
-    .navbar-element__text {
+    .contact-me-btn {
         width: 100%;
+    } 
+
+    .socnets {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-content-blocks {
+        flex-direction: column;
+        gap: 30px;
     }
 
 }

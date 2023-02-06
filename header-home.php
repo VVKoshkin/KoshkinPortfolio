@@ -38,7 +38,6 @@
                 'add_li_class'  => 'navbar-element',
                 'add_a_class' => 'navbar-element__link'  
             ]);
-
             ?>
             <div class="color-mode-switcher" id="color-mode-switcher">
               <div class="color-mode-switcher-line"></div>

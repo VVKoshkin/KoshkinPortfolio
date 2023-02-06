@@ -182,6 +182,7 @@ function add_css_and_scripts() {
     wp_enqueue_style( 'reset', get_template_directory_uri() . '/assets/css/reset.css' );
     wp_enqueue_style( 'default', get_template_directory_uri() . '/assets/css/default.css' );
     wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css' );
+    wp_enqueue_style( 'my-media', get_template_directory_uri() . '/assets/css/media.css' );
     wp_enqueue_style( 'my-forms', get_template_directory_uri() . '/assets/css/forms.css' );
     wp_enqueue_style( 'popups', get_template_directory_uri() . '/assets/css/popups.css' );
     // подцепляется jQuery из CDN вместо стандартного
