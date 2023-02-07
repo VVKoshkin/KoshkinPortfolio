@@ -28,7 +28,7 @@
 @media screen and (max-width: 800px) {
 
     .what-order-cards {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .order-form {
@@ -42,12 +42,12 @@
 
     .portfolio-popup-content {
         height: auto;
-        grid-template-areas: 
-        "header-grid-area"
-        "image-grid-area"
-        "typeset-grid-area"
-        "button-grid-area"
-        "button-grid-area"
+        grid-template-areas:
+            "header-grid-area"
+            "image-grid-area"
+            "typeset-grid-area"
+            "button-grid-area"
+            "button-grid-area"
         ;
         width: 200%;
     }
@@ -103,7 +103,7 @@
 
     .contact-me-btn {
         width: 100%;
-    } 
+    }
 
     .socnets {
         flex-direction: column;
@@ -113,6 +113,22 @@
     .footer-content-blocks {
         flex-direction: column;
         gap: 30px;
+    }
+
+    label {
+        flex-direction: column;
+    }
+
+    .btns {
+        flex-direction: column;
+    }
+
+    .calc-block .inner {
+        width: 100%;
+    }
+
+    #estimate-table {
+        word-wrap: break-all;
     }
 
 }

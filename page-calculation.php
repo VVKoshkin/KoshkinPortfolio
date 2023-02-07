@@ -90,8 +90,8 @@
             <table class="inner typeset" id="estimate-table">
                 <thead>
                 <tr>
-                    <th class="typeset-big">Наименование</th>
-                    <th class="typeset-big">Значение</th>
+                    <th class="typeset-big">Наимено<wbr>вание</th>
+                    <th class="typeset-big">Значе<wbr>ние</th>
                 </tr>
                 </thead>
                 <tbody>

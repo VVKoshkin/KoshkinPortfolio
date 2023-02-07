@@ -7,7 +7,8 @@
   --themeSwitcherLeftValue: 0px;
   --navbarBgc: #71a2ad;
   --navbarLinkColor: #e1eff1;
-  --navbarLinkColorHover: #bbd7de;
+  --navbarCurrentPageLinkColor: #27393c;
+  --navbarLinkColorHover: #94e4f9;
   --colorSwitcherBorder: #b5c8cf;
   --colorSwitcher: #fff;
   --btnColor: #8ebdc8;
@@ -27,6 +28,7 @@
   --themeSwitcherLeftValue: calc(100% - 25px);
   --navbarBgc: #2b2c34;
   --navbarLinkColor: #78a0ad;
+  --navbarCurrentPageLinkColor: #3b6370;
   --navbarLinkColorHover: #b5c8cf;
   --colorSwitcherBorder: #3d4857;
   --colorSwitcher: #000;
@@ -122,8 +124,8 @@ body {
 #nav-menu-close {
   display: none;
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 50px;
+  left: 20px;
 }
 
 #nav-menu-close img {

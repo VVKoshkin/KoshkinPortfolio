@@ -26,9 +26,12 @@ a {
 
 .navbar-elements {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-grow: 0.6;
+    gap: 50px;
+}
+
+.navbar-element.current_page_item a {
+    color: var(--navbarCurrentPageLinkColor);
 }
 
 .navbar-element__link {
@@ -37,7 +40,7 @@ a {
 }
 
 .navbar-element__link:hover {
-    color: #BBD7DE;
+    color: var(--navbarLinkColorHover);
 }
 
 .navbar-hamburger {
