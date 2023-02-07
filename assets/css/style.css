@@ -119,6 +119,22 @@ body {
   height: 100%;
 }
 
+#nav-menu-close {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+#nav-menu-close img {
+  width: 16px;
+  height: auto;
+}
+
+#nav-menu-close:hover {
+  scale: 1.1;
+}
+
 .color-mode-switcher {
   position: relative;
   display: flex;

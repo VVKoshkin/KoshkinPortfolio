@@ -1,0 +1,84 @@
+:root {
+    --shortAnimTime: .3s;
+    --middleAnimTime: 1s;
+    --longAnimTime: 3s;
+}
+
+@keyframes shake {
+    0% {}
+
+    20% {
+        transform: rotate3d(0, 0, 1, 1deg);
+    }
+
+    40% {
+        transform: rotate3d(0, 0, 1, -1deg);
+    }
+
+    50% {
+        background-color: #f7dfdf;
+    }
+
+    60% {
+        transform: rotate3d(0, 0, 1, 1deg);
+    }
+
+    80% {
+        transform: rotate3d(0, 0, 1, -1deg);
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+}
+
+.shakeAnimClass {
+    animation-duration: var(--shortAnimTime);
+    animation-fill-mode: both;
+    animation-name: shake;
+}
+
+@keyframes downAndUp {
+    0% {
+        object-position: top;
+    }
+
+    50% {
+        object-position: bottom;
+    }
+
+    100% {
+        object-position: top;
+    }
+}
+
+.downAndUpAnimClass {
+    animation-duration: var(--longAnimTime);
+    animation-fill-mode: both;
+    animation-name: downAndUp;
+    animation-iteration-count: infinite;
+}
+
+@keyframes stretchWidthAndHeight {
+    from {
+        transform: scaleX(1);
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+        transform: scaleX(1);
+    }
+
+}
+
+.stretchWidthAndHeightAnimClass {
+    transform-origin: top left;
+    animation-duration: var(--shortAnimTime);
+    animation-fill-mode: forwards;
+    animation-name: stretchWidthAndHeight;
+}
+
+.reverse {
+    animation-direction: reverse;
+}

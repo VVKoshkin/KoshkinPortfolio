@@ -34,7 +34,7 @@
                 'theme_location'  => 'headerNav',
                 'container'       => 'div',
                 'container_class' => 'navbar-elements',
-                'items_wrap' => '%3$s',
+                'items_wrap' => '<div id="nav-menu-close"><img src="'.get_template_directory_uri().'/assets/img/cross.png'.'"></div>%3$s',
                 'add_li_class'  => 'navbar-element',
                 'add_a_class' => 'navbar-element__link'  
             ]);

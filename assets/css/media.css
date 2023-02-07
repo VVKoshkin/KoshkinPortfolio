@@ -8,7 +8,7 @@
     }
 
     .navbar-elements {
-        display: flex;
+        visibility: hidden;
         height: 100vh;
         width: 100%;
         position: fixed;
@@ -18,7 +18,10 @@
         flex-direction: column;
         justify-content: space-around;
         z-index: 3;
-        margin-top: 85px;
+    }
+
+    #nav-menu-close {
+        display: block;
     }
 }
 
@@ -28,9 +31,42 @@
         grid-template-columns: repeat(2,1fr);
     }
 
+    .order-form {
+        width: 100%;
+        height: 100vh;
+    }
+
+    .portfolio-popup__image {
+        width: 100%;
+    }
+
+    .portfolio-popup-content {
+        height: auto;
+        grid-template-areas: 
+        "header-grid-area"
+        "image-grid-area"
+        "typeset-grid-area"
+        "button-grid-area"
+        "button-grid-area"
+        ;
+        width: 200%;
+    }
+
+    .portfolio-popup__headline {
+        text-align: center;
+    }
+
 }
 
 @media screen and (max-width: 430px) {
+
+    .headline {
+        font-size: 25px;
+    }
+
+    .typeset {
+        font-size: 20px;
+    }
 
     .header-btns {
         flex-direction: column;
@@ -51,6 +87,18 @@
 
     .my-portfolio-cards {
         grid-template-columns: 1fr;
+    }
+
+    .portfolio-popup-content {
+        height: auto;
+        grid-template-areas:
+            "header-grid-area"
+            "image-grid-area"
+            "typeset-grid-area"
+            "button-grid-area"
+            "button-grid-area"
+        ;
+        width: 100%;
     }
 
     .contact-me-btn {

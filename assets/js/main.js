@@ -13,8 +13,21 @@ $(() => {
 
     // хамбургер меню - для адаптива
     $('.navbar-hamburger').click(() => {
-        $('.navbar-elements').toggle();
+        $('.navbar-elements').css('visibility', 'visible').addClass('stretchWidthAndHeightAnimClass');
     });
+    $('#nav-menu-close').click(() => {
+        $('.navbar-elements').removeClass('stretchWidthAndHeightAnimClass');
+        setTimeout(() => {
+            $('.navbar-elements').addClass('stretchWidthAndHeightAnimClass reverse');
+
+        }, 2);
+        setTimeout(() => {
+            $('.navbar-elements').css('visibility', 'hidden')
+            $('.navbar-elements').removeClass('stretchWidthAndHeightAnimClass')
+            $('.navbar-elements').removeClass('reverse')
+        },500);
+
+    })
     // переключатель тёмная/светлая тема
     $('#color-mode-switcher').click((e) => {
         e.preventDefault();
@@ -37,6 +50,7 @@ const setTheme = (themeClass) => {
 const setMakeOrderListeners = () => {
     // открыть форму перезвоните мне
     $('button[data-action="openOrderForm"]').click(() => {
+        destroyModal();
         openModal('form-order').done(setOrderFormListeners);
     });
 }

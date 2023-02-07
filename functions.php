@@ -24,7 +24,7 @@ function load_portfolio_page() {
                   'terms'    => 'карточка-в-портфолио'
                 )
                 ),
-                'posts_per_page' => 4,
+                'posts_per_page' => 2,
                 'paged' => $paged,
               'orderby'     => 'date',
               'order'       => 'ASC' ] );
@@ -181,10 +181,11 @@ function add_css_and_scripts() {
     // стили css
     wp_enqueue_style( 'reset', get_template_directory_uri() . '/assets/css/reset.css' );
     wp_enqueue_style( 'default', get_template_directory_uri() . '/assets/css/default.css' );
+    wp_enqueue_style( 'animations', get_template_directory_uri() . '/assets/css/animations.css' );
     wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css' );
-    wp_enqueue_style( 'my-media', get_template_directory_uri() . '/assets/css/media.css' );
     wp_enqueue_style( 'my-forms', get_template_directory_uri() . '/assets/css/forms.css' );
     wp_enqueue_style( 'popups', get_template_directory_uri() . '/assets/css/popups.css' );
+    wp_enqueue_style( 'my-media', get_template_directory_uri() . '/assets/css/media.css' );
     // подцепляется jQuery из CDN вместо стандартного
 	wp_deregister_script( 'jquery-core');
 	wp_register_script('jquery-core', 'https://code.jquery.com/jquery-3.6.0.js', in_footer:true);
