@@ -36,24 +36,28 @@
         height: 100vh;
     }
 
-    .portfolio-popup__image {
-        width: 100%;
+    .my-portfolio-card>img {
+        max-height: 30vh;
     }
 
-    .portfolio-popup-content {
+    .my-portfolio-card {
         height: auto;
+        grid-template-columns: 1fr;
+        gap: 30px;
         grid-template-areas:
             "header-grid-area"
             "image-grid-area"
             "typeset-grid-area"
-            "button-grid-area"
-            "button-grid-area"
+            "buttons-grid-area"
         ;
-        width: 200%;
     }
 
     .portfolio-popup__headline {
         text-align: center;
+    }
+
+    .slick-arrow {
+        display: none;
     }
 
 }
@@ -89,16 +93,15 @@
         grid-template-columns: 1fr;
     }
 
-    .portfolio-popup-content {
+    .my-portfolio-card {
         height: auto;
+        grid-template-columns: 1fr;
         grid-template-areas:
             "header-grid-area"
             "image-grid-area"
             "typeset-grid-area"
-            "button-grid-area"
-            "button-grid-area"
+            "buttons-grid-area"
         ;
-        width: 100%;
     }
 
     .contact-me-btn {

@@ -30,7 +30,7 @@ a {
     gap: 50px;
 }
 
-.navbar-element.current_page_item a {
+.navbar-element.current-menu-item a {
     color: var(--navbarCurrentPageLinkColor);
 }
 

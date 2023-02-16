@@ -25,7 +25,7 @@ $(() => {
             $('.navbar-elements').css('visibility', 'hidden')
             $('.navbar-elements').removeClass('stretchWidthAndHeightAnimClass')
             $('.navbar-elements').removeClass('reverse')
-        },500);
+        }, 500);
 
     })
     // переключатель тёмная/светлая тема
@@ -35,11 +35,14 @@ $(() => {
         localStorage.setItem('page-theme', $('html').attr('class'));
     });
     setMakeOrderListeners();
-    setPortfolioCardsListener();
+    // setPortfolioCardsListener();
     setListListeners();
     $('.my-portfolio-cards').mouseleave(() => {
         destroyPopup();
     })
+    // https://kenwheeler.github.io/slick/
+    $('.my-portfolio-cards').slick();
+    $('.wp-block-gallery').slick();
 });
 
 const setTheme = (themeClass) => {

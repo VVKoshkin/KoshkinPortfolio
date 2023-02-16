@@ -48,8 +48,8 @@
       </div>
       <div class="container">
         <div class="header-content">
-          <h1 class="headline headline-big">вёрстка и создание сайтов</h1>
-          <p class="typeset typeset-big">вёрстка и создание сайтов</p>
+          <h1 class="headline-big">вёрстка и создание сайтов</h1>
+          <p class="typeset-big">вёрстка и создание сайтов</p>
           <div class="header-btns">
             <a href="calculation" target="_blank"><button class="btn header-btn" data-action="openCalculateForm">Рассчитать стоимость</button></a>
             <button class="btn header-btn" data-action="openOrderForm">Оставить заявку</button>

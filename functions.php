@@ -8,41 +8,8 @@ add_action('after_setup_theme', 'register_navbars');
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 10, 4);
 
-add_action( 'wp_ajax_loadPortfolioPage', 'load_portfolio_page' );
-add_action( 'wp_ajax_nopriv_loadPortfolioPage', 'load_portfolio_page' );
-
-
-function load_portfolio_page() {
-	$paged  = $_POST['pageToLoad'] ?: 1;
-	$result = [];
-          // выводятся все карточки с таксономией "Тип карточки" = "Карточка в портфолио"
-          $query = new WP_Query( [ 'post_type'=>'cards',
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'card_type',
-                  'field'    => 'slug',
-                  'terms'    => 'карточка-в-портфолио'
-                )
-                ),
-                'posts_per_page' => 2,
-                'paged' => $paged,
-              'orderby'     => 'date',
-              'order'       => 'ASC' ] );
-          while ( $query->have_posts() ) {
-            $query->the_post();
-			$elem = [
-				"cardImage" => get_the_post_thumbnail_url(),
-				"title" => get_the_title(),
-				"content" => get_the_content(),
-				"link" => get_permalink()
-			];
-			array_push($result, $elem);
-		  }
-	echo json_encode($result);
-	die;
-}
 // действия
-function register_custom_post_types(){
+function register_custom_post_types() {
 
     register_taxonomy( 'card_type', [ 'cards' ], [
 		'label'                 => '', // определяется параметром $labels->name
@@ -63,17 +30,13 @@ function register_custom_post_types(){
 		],
 		'description'           => '', // описание таксономии
 		'public'                => true,
-		'hierarchical'          => false,
-
+		'hierarchical'          => true,
 		'rewrite'               => true,
-		//'query_var'             => $taxonomy, // название параметра запроса
 		'capabilities'          => array(),
 		'meta_box_cb'           => null, // html метабокса. callback: `post_categories_meta_box` или `post_tags_meta_box`. false — метабокс отключен.
 		'show_admin_column'     => true, // авто-создание колонки таксы в таблице ассоциированного типа записи. (с версии 3.5)
 		'show_in_rest'          => null, // добавить в REST API
 		'rest_base'             => null, // $taxonomy
-		// '_builtin'              => false,
-		//'update_count_callback' => '_update_post_term_count',
 	] );    
 
     register_taxonomy( 'list_type', [ 'listElems' ], [
@@ -95,8 +58,7 @@ function register_custom_post_types(){
 		],
 		'description'           => '', // описание таксономии
 		'public'                => true,
-		'hierarchical'          => false,
-
+		'hierarchical'          => true,
 		'rewrite'               => true,
 		'capabilities'          => array(),
 		'meta_box_cb'           => null, // html метабокса. callback: `post_categories_meta_box` или `post_tags_meta_box`. false — метабокс отключен.
@@ -127,11 +89,11 @@ function register_custom_post_types(){
 		'show_in_admin_bar'   => true, // зависит от show_in_menu
 		'show_in_rest'        => null, // добавить в REST API. C WP 4.7
 		'rest_base'           => null, // $post_type. C WP 4.7
-		'menu_position'       => 5,
+		'menu_position'       => 50,
 		'menu_icon'           => null,
 		'hierarchical'        => false,
 		'supports'            => [ 'title', 'excerpt', 'thumbnail', 'editor' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-		'taxonomies'          => ['card_type'],
+		'taxonomies'          => [],
 		'has_archive'         => false,
 		'rewrite'             => true,
 		'query_var'           => true,
@@ -155,19 +117,12 @@ function register_custom_post_types(){
 		],
 		'description'            => 'Элементы списка на сайте, по смыслу поделены таксономией',
 		'public'                 => true,
-		// 'publicly_queryable'  => true, // зависит от public
-		// 'exclude_from_search' => true, // зависит от public
-		// 'show_ui'             => true, // зависит от public
-		// 'show_in_nav_menus'   => true, // зависит от public
 		'show_in_menu'           => true, // показывать ли в меню админки
 		'show_in_admin_bar'   => true, // зависит от show_in_menu
 		'show_in_rest'        => null, // добавить в REST API. C WP 4.7
 		'rest_base'           => null, // $post_type. C WP 4.7
-		'menu_position'       => 6,
+		'menu_position'       => 55,
 		'menu_icon'           => null,
-		//'capability_type'   => 'post',
-		//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-		//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
 		'hierarchical'        => false,
 		'supports'            => [ 'title', 'thumbnail' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
 		'taxonomies'          => ['list_type'],
@@ -180,19 +135,25 @@ function register_custom_post_types(){
 function add_css_and_scripts() {
     // стили css
     wp_enqueue_style( 'reset', get_template_directory_uri() . '/assets/css/reset.css' );
+    wp_enqueue_style( 'slick', get_template_directory_uri() . '/assets/slick/slick.css' );
+    wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/assets/slick/slick-theme.css' );
     wp_enqueue_style( 'default', get_template_directory_uri() . '/assets/css/default.css' );
     wp_enqueue_style( 'animations', get_template_directory_uri() . '/assets/css/animations.css' );
     wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css' );
     wp_enqueue_style( 'my-forms', get_template_directory_uri() . '/assets/css/forms.css' );
     wp_enqueue_style( 'popups', get_template_directory_uri() . '/assets/css/popups.css' );
     wp_enqueue_style( 'my-media', get_template_directory_uri() . '/assets/css/media.css' );
+	if(is_category() or is_singular('post')) {
+    	wp_enqueue_style( 'category', get_template_directory_uri() . '/assets/css/category.css' );
+	}
     // подцепляется jQuery из CDN вместо стандартного
 	wp_deregister_script( 'jquery-core');
 	wp_register_script('jquery-core', 'https://code.jquery.com/jquery-3.6.0.js', in_footer:true);
 	wp_enqueue_script('jquery', in_footer:true);
 
     wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', in_footer:true); 
-    wp_enqueue_script('ajaxPortfolioPagination', get_template_directory_uri() . '/assets/js/ajax-portfolio-pagination.js', in_footer:true); 
+    wp_enqueue_script('slick', get_template_directory_uri() . '/assets/slick/slick.min.js', in_footer:true);
+    // wp_enqueue_script('ajaxPortfolioPagination', get_template_directory_uri() . '/assets/js/ajax-portfolio-pagination.js', in_footer:true); 
     // template_directory_uri передаётся как переменная в скрипт, т.к. там для форм и всплывашек
     // используются файлы из popups и modals шаблоны соответственно
     // обращение к переменной: additional_vars.template_uri

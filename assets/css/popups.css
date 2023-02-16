@@ -73,4 +73,5 @@
     grid-column: span 1;
     align-self: end;
     padding: 20px 30px;
+    grid-area: button-grid-area;
 }
