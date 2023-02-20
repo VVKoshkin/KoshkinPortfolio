@@ -246,7 +246,7 @@ body {
   padding-right: 8.333%;
 }
 
-.list-and-photo>ul {
+ul.list {
   flex-grow: 1;
   max-width: 50%;
   display: flex;
@@ -261,7 +261,7 @@ body {
   padding: 15px;
 }
 
-.list-and-photo>ul>li {
+ul.list>li {
   font-size: 24px;
   line-height: 24px;
   cursor: pointer;
@@ -272,7 +272,7 @@ body {
   align-items: center;
 }
 
-.list-and-photo>ul>li::before {
+ul.list>li::before {
   content: "";
   position: absolute;
   background-image: url("../img/list_arrow.png");
@@ -281,7 +281,7 @@ body {
   height: 30px;
 }
 
-.list-and-photo>ul>li:hover {
+ul.list>li:hover {
   font-size: 24px;
   line-height: 24px;
   cursor: pointer;

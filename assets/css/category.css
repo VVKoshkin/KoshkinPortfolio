@@ -1,3 +1,4 @@
+/* all posts page */
 .post-cards {
     display: flex;
     flex-direction: column;
@@ -11,7 +12,7 @@
     grid-column-gap: 20px;
     grid-row-gap: 15px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "date headline"
+    grid-template-areas: "date_headline date_headline"
         "horr horr" 
         "image typeset"
         "image button";
@@ -24,15 +25,22 @@
     border: 1px dotted var(--btnColor);
 }
 
+.date-and-headline {
+    grid-area: date_headline;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
 .post-card__headline {
-    grid-area: headline;
+    /* grid-area: headline; */
     font-size: 24px;
     line-height: normal;
     text-align: right;
 }
 
 .post-card__date {
-    grid-area: date;
+    /* grid-area: date; */
     text-align: left;
     line-height: normal;
     color: #707070;
@@ -77,6 +85,10 @@
 
 .wp-block-image {
     position: relative;
+    align-self: center;
+    text-align: center;
+    width: 70%;
+    height: auto;
 }
 
 .wp-block-image figcaption {
@@ -103,8 +115,47 @@
 
 }
 
+.wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
+    background: linear-gradient(0deg, black, transparent);
+    font-size: 24px;
+}
+
+.post-content > h2 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 42px;
+    text-transform: uppercase;
+    color: #C75633;
+}
+
+.wp-block-gallery > .slick-list {
+    width: 70%;
+}
+
+.wp-block-table {
+    width: 70%;
+    align-self: center;
+    font-size: 28px;
+}
+
 .wp-block-table>figcaption {
     text-align: right;
     font-size: 16px;
     color: #999;
+    margin-top: 10px;
+}
+
+.wp-block-table>table {
+    background-color: var(--cardBgc);
+}
+
+.wp-block-table>table>thead>tr>th {
+    text-transform: uppercase;
+    color: #C75633;
+    border-color: #000;
+}
+
+.wp-block-table>table>tbody>tr>td {
+    color: var(--typesetColor);
+    border-color: #000;
 }

@@ -37,7 +37,7 @@
     <div class="container">
       <h4 class="headline has-text-align-center">А что ещё</h4>
       <div class="list-and-photo">
-        <ul class="what-else-list">
+        <ul class="list what-else-list">
           <?php
               // выводятся все элементы списка с таксономией "Вид списка" = "Что я умею"
               $query = new WP_Query( [ 'post_type'=>'listElems',
@@ -76,7 +76,7 @@
                 array(
                   'taxonomy' => 'card_type',
                   'field'    => 'slug',
-                  'terms'    => 'portfolio-card'
+                  'terms'    => 'portfolio-sample'
                 )
                 ),
                 'paged' => $paged,
@@ -110,7 +110,7 @@
     <div class="container">
       <h4 class="headline has-text-align-center">Обо мне</h4>
       <div class="list-and-photo">
-        <ul class="about-list">
+        <ul class="list about-list">
           
           <?php
               // выводятся все элементы списка с таксономией "Вид списка" = "Обо мне"
@@ -157,7 +157,7 @@
     <div class="container">
       <h4 class="headline has-text-align-center">рабочий процесс</h4>
       <div class="list-and-photo">
-        <ul class="about-list">
+        <ul class="list about-list">
           
           <?php
               // выводятся все элементы списка с таксономией "Вид списка" = "Рабочий процесс"
