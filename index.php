@@ -88,10 +88,10 @@
         <div class="card my-portfolio-card">
           <img class="downAndUpAnimClass" src="<?php the_post_thumbnail_url(); ?>"/>
           <h4 class="card-headline"><?php the_title(); ?></h4>
-          <p class="card-typeset"><?php echo get_the_content(); ?></p>
+          <p class="card-typeset"><?php echo get_the_excerpt(); ?></p>
           <div class="buttons">
             <a href="<?php echo get_permalink(); ?>" target="_blank">
-            <button class="btn">Посмотреть сайт</button>
+            <button class="btn">Посмотреть работу</button>
             </a>
             <button class="btn" data-action="openOrderForm">Хочу такой же</button>
           </div>

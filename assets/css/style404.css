@@ -1,0 +1,13 @@
+body {
+    display: grid;
+    gap: 50px;
+    height: 100vh;
+}
+
+body .container {
+    align-self: center;
+}
+
+body footer {
+    align-self: flex-end;
+}

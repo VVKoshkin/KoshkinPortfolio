@@ -92,7 +92,7 @@ function register_custom_post_types() {
 		'menu_position'       => 50,
 		'menu_icon'           => null,
 		'hierarchical'        => false,
-		'supports'            => [ 'title', 'excerpt', 'thumbnail', 'editor' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+		'supports'            => [ 'title', 'editor', 'excerpt', 'thumbnail' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
 		'taxonomies'          => [],
 		'has_archive'         => false,
 		'rewrite'             => true,
@@ -143,8 +143,12 @@ function add_css_and_scripts() {
     wp_enqueue_style( 'my-forms', get_template_directory_uri() . '/assets/css/forms.css' );
     wp_enqueue_style( 'popups', get_template_directory_uri() . '/assets/css/popups.css' );
     wp_enqueue_style( 'my-media', get_template_directory_uri() . '/assets/css/media.css' );
-	if(is_category() or is_singular('post')) {
+	if(is_archive() or is_single()) {
     	wp_enqueue_style( 'category', get_template_directory_uri() . '/assets/css/category.css' );
+	}
+	if(is_404( )) {
+    	wp_enqueue_style( 'style404', get_template_directory_uri() . '/assets/css/style404.css' );
+
 	}
     // подцепляется jQuery из CDN вместо стандартного
 	wp_deregister_script( 'jquery-core');

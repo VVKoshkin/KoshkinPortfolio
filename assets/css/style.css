@@ -56,6 +56,10 @@ body {
   background-color: var(--bodyBgc);
 }
 
+main {
+  padding-top: 60px;
+}
+
 .headline {
   font-weight: 700;
   font-size: 36px;
@@ -107,7 +111,6 @@ body {
 .navbar {
   height: 95px;
   background-color: var(--navbarBgc);
-  margin-bottom: 65px;
 }
 
 .navbar-element__link {
@@ -171,6 +174,10 @@ body {
   background-color: var(--btnColorHover);
 }
 
+.header-content {
+  padding-top: 65px;
+}
+
 .header-btns {
   display: flex;
   justify-content: center;
@@ -185,7 +192,6 @@ body {
 }
 
 .what-order {
-  padding-top: 60px;
   padding-bottom: 140px;
 }
 
