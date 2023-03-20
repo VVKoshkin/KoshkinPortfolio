@@ -6,16 +6,7 @@
       <div class="cards what-order-cards">
         <?php
           // выводятся все карточки с таксономией "Тип карточки" = "Виды сайтов"
-          $query = new WP_Query( [ 'post_type'=>'cards',
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'card_type',
-                  'field'    => 'slug',
-                  'terms'    => 'site-type'
-                )
-                ),
-              'orderby'     => 'date',
-              'order'       => 'ASC' ] );
+          $query = new WP_Query( [ 'post_type'=>'sites'] );
           while ( $query->have_posts() ) {
             $query->the_post();
         ?>         
@@ -71,12 +62,11 @@
       <div class="cards my-portfolio-cards">
         <?php
           // выводятся все карточки с таксономией "Тип карточки" = "Карточка в портфолио"
-          $query = new WP_Query( [ 'post_type'=>'cards',
-              'tax_query' => array(
+          $query = new WP_Query( [ 'post_type'=>'works',
+              'meta_query' => array(
                 array(
-                  'taxonomy' => 'card_type',
-                  'field'    => 'slug',
-                  'terms'    => 'portfolio-sample'
+                  'key' => 'is_on_main', // сумма с НДС по которой ищем
+                  'value' => true // значение в промежутке от-до
                 )
                 ),
                 'paged' => $paged,
