@@ -63,22 +63,23 @@
         <?php
           // выводятся все карточки с таксономией "Тип карточки" = "Карточка в портфолио"
           $query = new WP_Query( [ 'post_type'=>'works',
+          // инода полезно просто почитать документацию...
+          // https://acfwp.ru/true-false/
               'meta_query' => array(
                 array(
-                  'key' => 'is_on_main', // сумма с НДС по которой ищем
-                  'value' => true // значение в промежутке от-до
+                  'key' => 'on_main',
+                  'compare' => '==',
+                  'value' => '1'
                 )
-                ),
-                'paged' => $paged,
-              'orderby'     => 'date',
-              'order'       => 'ASC' ] );
+                )
+                ] );
           while ( $query->have_posts() ) {
             $query->the_post();
         ?>
         <div class="card my-portfolio-card">
           <img class="downAndUpAnimClass" src="<?php the_post_thumbnail_url(); ?>"/>
           <h4 class="card-headline"><?php the_title(); ?></h4>
-          <p class="card-typeset"><?php echo get_the_excerpt(); ?></p>
+          <p class="card-typeset"><?php echo get_the_excerpt(); ?></p>          
           <div class="buttons">
             <a href="<?php echo get_permalink(); ?>" target="_blank">
             <button class="btn">Посмотреть работу</button>
@@ -92,7 +93,7 @@
         ?>
       </div>
       <p class="grey-text">
-        Кстати, этот сайт-портфолио тоже создан мной и сидит на WordPress :)
+        Кстати, этот сайт-портфолио тоже создан мной и сидит на WordPress
       </p>
     </div>
   </section>

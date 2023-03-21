@@ -1,7 +1,7 @@
 :root {
     --shortAnimTime: .3s;
     --middleAnimTime: 1s;
-    --longAnimTime: 3s;
+    --longAnimTime: 6s;
 }
 
 @keyframes shake {

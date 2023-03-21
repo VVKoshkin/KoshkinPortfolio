@@ -11,26 +11,6 @@ add_action('after_setup_theme', 'register_navbars');
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 10, 4);
 
-// function works_mainpage_metabox() {
-// 	add_meta_box(
-// 		'is_on_main', // ID нашего метабокса
-// 		'Разместить эту работу на главной странице', // заголовок
-// 		'works_mainpage_metabox_callback', // функция, которая будет выводить поля в мета боксе
-// 		'works', // типы постов, для которых его подключим
-// 		'side', // расположение (normal, side, advanced)
-// 		'default' // приоритет (default, low, high, core)
-// 	);
-// }
-
-// function works_mainpage_metabox_callback($post) {
-// 	$is_on_main = get_post_meta( $post->ID, 'is_on_main', true );
-// 	echo '<input type="checkbox" name="is_on_main"' . checked( 'yes', $is_on_main, false ) .'/><p>'.$post->ID.'</p>';
-// }
-
-// function works_mainpage_metabox_value_saving() {
-
-// }
-
 // действия
 function register_custom_post_types() {
 
@@ -75,7 +55,7 @@ function register_custom_post_types() {
 	] );
 	
 	register_post_type( 'works', [
-		'label'  => null,
+		'label'  => 'Мои работы',
 		'labels' => [
 			'name'               => 'Мои работы', // основное название для типа записи
 			'singular_name'      => 'Моя работа', // название для одной записи этого типа
@@ -182,7 +162,7 @@ function add_css_and_scripts() {
 	if(is_404( )) {
     	wp_enqueue_style( 'style404', get_template_directory_uri() . '/assets/css/style404.css' );
 	}
-	if(is_page( 'works' )) {
+	if(is_page( 'works' ) OR is_tax('work-type')) {
     	wp_enqueue_style( 'worksStyle', get_template_directory_uri() . '/assets/css/works.css' );
 	}
     // подцепляется jQuery из CDN вместо стандартного

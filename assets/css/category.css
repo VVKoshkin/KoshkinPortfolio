@@ -162,3 +162,30 @@
     color: var(--typesetColor);
     border-color: #000;
 }
+
+p:has(>img.aligncenter) {
+    text-align: center;
+}
+
+.post-content>a.btn {
+    --height: 50px;
+    height: var(--height);
+    line-height: var(--height);
+    align-self: center;
+    padding: 0 20px;
+}
+
+@media screen and (max-width:400px) {
+    .post-card {
+        grid-template-columns: 1fr;
+        grid-template-areas: "date_headline"
+        "horr"
+        "image"
+        "typeset"
+        "button";
+    }
+
+    .date-and-headline {
+        flex-direction: column;
+    }
+}

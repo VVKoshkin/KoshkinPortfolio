@@ -24,7 +24,7 @@
 .portfolio-cards {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 20px;
 }
 
@@ -49,17 +49,19 @@
 }
 
 .portfolio-card__img {
+    max-height: 400px;
     width: 100%;
     object-fit: cover;
 }
 
-.portfolio-card-buttons {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
+.portfolio-card__btn {
+    --height: 50px;
+    height: var(--height);
+    line-height: var(--height);
 }
 
-.portfolio-card-buttons .btn {
-    padding: 10px 20px;
+@media screen and (max-width: 500px) {
+    .portfolio-cards {
+        grid-template-columns: 1fr;
+    }
 }

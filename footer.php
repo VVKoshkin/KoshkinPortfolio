@@ -2,19 +2,7 @@
       <div class="container">
         <div class="footer-content-blocks">
           <div class="footer-content">
-            <a href="#">Lorem, ipsum.</a>
-            <a href="#">Minus, architecto.</a>
-            <a href="#">Praesentium, voluptas.</a>
-            <a href="#">Aliquam, harum!</a>
-            <a href="#">Nam, fuga!</a>
-            <a href="#">Voluptas, eos.</a>
-          </div>
-          <div class="footer-content">
-            <p class="footer-typeset">
-              Также<br />
-              вступай в<br />группы в ВК<br />
-              и Telegram
-            </p>
+            <p class="footer-typeset">Также вступай в группы в ВК и Telegram</p>
             <div class="footer-socnets">
               <a
                 target="_blank"

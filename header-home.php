@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document sample</title>
+    <!-- этот вариант хедера используется только на главной -->
+    <title><?php echo get_bloginfo('name'),' - Главная страница'; ?></title>
     <!-- Roboto Font (mostly popular) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,8 +49,8 @@
       </div>
       <div class="container">
         <div class="header-content">
-          <h1 class="headline-big">вёрстка и создание сайтов</h1>
-          <p class="typeset-big">вёрстка и создание сайтов</p>
+          <h1 class="headline-big"><?php bloginfo('name'); ?></h1>
+          <p class="typeset-big"><?php bloginfo('description'); ?></p>
           <div class="header-btns">
             <a href="calculation" target="_blank"><button class="btn header-btn" data-action="openCalculateForm">Рассчитать стоимость</button></a>
             <button class="btn header-btn" data-action="openOrderForm">Оставить заявку</button>
