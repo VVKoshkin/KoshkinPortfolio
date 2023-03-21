@@ -52,7 +52,6 @@
           <h1 class="headline-big"><?php bloginfo('name'); ?></h1>
           <p class="typeset-big"><?php bloginfo('description'); ?></p>
           <div class="header-btns">
-            <a href="calculation" target="_blank"><button class="btn header-btn" data-action="openCalculateForm">Рассчитать стоимость</button></a>
             <button class="btn header-btn" data-action="openOrderForm">Оставить заявку</button>
           </div>
         </div>
