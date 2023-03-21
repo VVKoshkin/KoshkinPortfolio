@@ -36,7 +36,7 @@
                     array(
                       'taxonomy' => 'list_type',
                       'field'    => 'slug',
-                      'terms'    => 'что-я-умею'
+                      'terms'    => 'my-skills'
                     )
                     ),
                   'orderby'     => 'date',
@@ -110,7 +110,7 @@
                     array(
                       'taxonomy' => 'list_type',
                       'field'    => 'slug',
-                      'terms'    => 'обо-мне'
+                      'terms'    => 'about-me'
                     )
                     ),
                   'orderby'     => 'date',
@@ -157,7 +157,7 @@
                     array(
                       'taxonomy' => 'list_type',
                       'field'    => 'slug',
-                      'terms'    => 'рабочий-процесс'
+                      'terms'    => 'work-process'
                     )
                     ),
                   'orderby'     => 'date',
