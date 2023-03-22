@@ -138,12 +138,24 @@ const setOrderFormListeners = () => {
         // 4. Описание необязательно, но если есть, тоже надо положить (иначе будет пустая строка)
         formInfo.description = $('#order-form-description').val();
         if (!isBad) {
-            sendOrder(formInfo);
-            openModal('form-confirmed').done(() => {
-                $('.form-confirmed>button').click(() => {
-                    destroyModal();
-                });
-            });
+            sendOrder(formInfo)
+                .done((res) => {
+                    if (res != 0)  {
+                        console.log(res);
+                        alert('В данный момент этот функционал поломался')
+                        return;
+                    }
+                    openModal('form-confirmed').done((res) => {
+
+                        $('.form-confirmed>button').click(() => {
+                            destroyModal();
+                        });
+                    })
+                })
+                .fail(() => {
+                    alert('В данный момент этот функционал поломался')
+                })
+                ;
         }
     })
 }
@@ -164,8 +176,11 @@ const showUnFilled = (domElem) => {
 }
 
 const sendOrder = (formInfo) => {
-    console.log(formInfo);
-    // TODO: отправка e-mail, сообщения ВК, телеграм
+    return $.ajax({
+        type: "POST",
+        url: `${additional_vars.template_uri}/telegram-script.php`,
+        data: formInfo
+    });
 }
 
 const openModal = (fileName) => {
