@@ -2,9 +2,9 @@
       <div class="container">
         <div class="footer-content-blocks">
           <div class="footer-content">
-            <p class="footer-typeset">Также вступай в группы в ВК и Telegram</p>
+            <p class="footer-typeset">Также вступай в группы в Telegram</p>
             <div class="footer-socnets">
-              <a
+              <a style="display:none;"
                 target="_blank"
                 href="https://vk.com"
                 class="footer-socnet__link"
@@ -15,7 +15,7 @@
               /></a>
               <a
                 target="_blank"
-                href="https://t.me"
+                href="https://t.me/koskinImposer"
                 class="footer-socnet__link"
                 ><img
                   src=<?php echo get_template_directory_uri().'/assets/img/socnets/tg.png';?>

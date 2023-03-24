@@ -137,7 +137,7 @@
         <button class="contact-me-btn btn" data-action="openOrderForm">Оставить заявку</button>
         <p class="typeset">Или напишите мне на почту/в соцсеть/мессенджер:</p>
         <div class="socnets">
-          <a target="_blank" href="mailto:vlad_zdor_94@mail.ru"><img src="<?php echo get_template_directory_uri().'/assets/img/socnets/email.png' ?>" alt="email" /></a>
+          <a target="_blank" href="mailto:koshkin-web@mail.ru"><img src="<?php echo get_template_directory_uri().'/assets/img/socnets/email.png' ?>" alt="email" /></a>
           <a target="_blank" href="https://vk.com/id734769187"><img src="<?php echo get_template_directory_uri().'/assets/img/socnets/vk.png' ?>" alt="VK" /></a>
           <a target="_blank" href="https://t.me/dsdest"><img src="<?php echo get_template_directory_uri().'/assets/img/socnets/tg.png' ?>" alt="Telegram" /></a>
         </div>
