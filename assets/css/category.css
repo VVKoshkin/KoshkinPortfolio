@@ -116,7 +116,6 @@
 
 .wp-block-table {
     overflow-x: clip;
-
 }
 
 .wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
@@ -130,6 +129,25 @@
     line-height: 42px;
     text-transform: uppercase;
     color: #C75633;
+}
+
+.post-content>ul {
+    flex-grow: 1;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.post-content>ul>li {
+    font-size: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    color: var(--listLiColor);
+    margin-left: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .wp-block-gallery > .slick-list {
