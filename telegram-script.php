@@ -4,10 +4,10 @@
 // берётся из переменных среды
 
 // токен бота
-define('TELEGRAM_TOKEN', getenv('TELEGRAM_TOKEN'));
+define('TELEGRAM_TOKEN', getenv("TELEGRAM_TOKEN"));
 
 // ID получателя в Telegram
-define('TELEGRAM_CHATID', getenv('TELEGRAM_CHATID'));
+define('TELEGRAM_CHATID', getenv("TELEGRAM_CHATID"));
 
 // собирается текст для письма
 try {

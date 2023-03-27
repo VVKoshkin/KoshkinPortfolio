@@ -2,7 +2,7 @@
       <div class="container">
         <div class="footer-content-blocks">
           <div class="footer-content">
-            <p class="footer-typeset">Также вступай в группы в Telegram</p>
+            <p class="footer-typeset">Также вступай в мою группу в Telegram</p>
             <div class="footer-socnets">
               <a style="display:none;"
                 target="_blank"
@@ -30,6 +30,8 @@
         <a class="footer-attribute" href="https://www.flaticon.com/free-icons/wordpress" title="wordpress icons">Wordpress icons created by Freepik - Flaticon</a>
         <a class="footer-attribute" href="https://www.flaticon.com/free-icons/java" title="java icons">Java icons created by Freepik - Flaticon</a>
         <a class="footer-attribute" href="https://www.flaticon.com/free-icons/api" title="api icons">Api icons created by Freepik - Flaticon</a>
+	<a class="footer-attribute" href="https://www.flaticon.com/free-stickers/blog" title="blog stickers">Blog stickers created by inipagistudio - Flaticon</a>
+	<a class="footer-attribute" href="https://www.flaticon.com/free-icons/chatbot" title="chatbot icons">Chatbot icons created by juicy_fish - Flaticon</a>
 
       </div>
     </footer>
