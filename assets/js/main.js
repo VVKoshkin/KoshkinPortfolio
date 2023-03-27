@@ -41,8 +41,8 @@ $(() => {
         destroyPopup();
     })
     // https://kenwheeler.github.io/slick/
-    $('.my-portfolio-cards').slick();
-    $('.wp-block-gallery').slick();
+    $('.my-portfolio-cards').slick({lazyLoad: 'progressive'});
+    $('.wp-block-gallery').slick({ lazyLoad: 'progressive' });
 });
 
 const setTheme = (themeClass) => {

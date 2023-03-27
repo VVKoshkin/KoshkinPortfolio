@@ -171,8 +171,7 @@ function add_css_and_scripts() {
 	wp_enqueue_script('jquery', in_footer:true);
 
     wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', in_footer:true); 
-    wp_enqueue_script('slick', get_template_directory_uri() . '/assets/slick/slick.min.js', in_footer:true);
-    // wp_enqueue_script('ajaxPortfolioPagination', get_template_directory_uri() . '/assets/js/ajax-portfolio-pagination.js', in_footer:true); 
+    wp_enqueue_script('slick', get_template_directory_uri() . '/assets/slick/slick.min.js', in_footer:true); 
     // template_directory_uri передаётся как переменная в скрипт, т.к. там для форм и всплывашек
     // используются файлы из popups и modals шаблоны соответственно
     // обращение к переменной: additional_vars.template_uri
