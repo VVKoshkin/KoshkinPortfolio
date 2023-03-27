@@ -1,13 +1,13 @@
 <?php
 
 
-// берётся из переменных среды
+// заполнить и сохранить как файл telegram-script.php (без -sample)
 
 // токен бота
-define('TELEGRAM_TOKEN', '6288894100:AAHIUFP9TKvnx4MHKg_rPlllAe5JsM9V8ho');
+define('TELEGRAM_TOKEN', '<TOKEN>');
 
 // ID получателя в Telegram
-define('TELEGRAM_CHATID', '223605489');
+define('TELEGRAM_CHATID', '<CHAT ID>');
 
 // собирается текст для письма
 try {
