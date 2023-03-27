@@ -33,6 +33,7 @@
 	<a class="footer-attribute" href="https://www.flaticon.com/free-stickers/blog" title="blog stickers">Blog stickers created by inipagistudio - Flaticon</a>
 	<a class="footer-attribute" href="https://www.flaticon.com/free-icons/chatbot" title="chatbot icons">Chatbot icons created by juicy_fish - Flaticon</a>
 
+
       </div>
     </footer>
     <?php wp_footer(); ?>
